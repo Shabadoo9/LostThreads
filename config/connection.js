@@ -3,8 +3,8 @@ require('dotenv').config();
 
 let sequelize;
 
-if (process.env.) {
-  sequelize = new Sequelize(process.env.);
+if (process.env.threads_db) {
+  sequelize = new Sequelize(process.env.threads_db);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
