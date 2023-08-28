@@ -29,7 +29,7 @@ A forum-based website catering to abandoned locations throughout Virginia. Users
 > THE search results should be sorted by date, with the most recent posts displayed at the top. <br>
 > THE search results page should provide an option to filter results based on various criteria (e.g., date,author, attraction).<br>
 > WHEN I choose the "create" button, I am directed to a page where I can enter in the relevant information for my thread post and upload an image. <br>
-> THE information needed to create a post should include a title, location, date visited, description, and image(s) (optional).
+> THE information needed to create a post should include a title, location, date visited, description, and image(s) (optional). <br>
 
 
 
