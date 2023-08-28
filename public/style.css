@@ -1,0 +1,30 @@
+/* ================= Ghost Animation ============== */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.ghost {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('ghost.png'); /* Replace with your ghost image path */
+    background-size: cover;
+    animation: floatAnimation 5s linear infinite;
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, -20px);
+    }
+    50% {
+        transform: translate(40px, 0);
+    }
+    75% {
+        transform: translate(20px, 20px);
+    }
+}
