@@ -13,9 +13,24 @@ A forum-based website catering to abandoned locations throughout Virginia. Users
 * [Credits](#credits)
 
 ## User Story
-
+> AS a registered forum user, <br>
+> I WANT to be able to easily search for and view posts based on location and attraction, <br>
+> SO that I can quickly find relevant discussions and new locations to explore regarding abandoned places. <br>
 
 ## Acceptance Criteria
+
+> GIVEN I am a new or existing user, when I visit the site I am directed to a login page with an option to login or sign-up. <br>
+> WHEN I choose to sign up, I am directed to a sign-up page where I can add my account information (e.g. email, name, username). <br>
+> THE new account information should be stored in a database. <br>
+> GIVEN that I am logged-in, when I visit the homepage, I should see a button to browse threads or create one. <br>
+> WHEN I choose the browse button, I am provided a search box which includes an input bar for keywords, an input bar for location, and a dropdown menu for attraction type. <br>
+> THE results page should display a list of relevant posts, showing the post titles, authors, image(s) (optional), and a brief snippet describing the location. <br>
+> EACH result should include a clickable title that takes me to the full post. <br>
+> THE search results should be sorted by date, with the most recent posts displayed at the top. <br>
+> THE search results page should provide an option to filter results based on various criteria (e.g., date,author, attraction).<br>
+> WHEN I choose the "create" button, I am directed to a page where I can enter in the relevant information for my thread post and upload an image. <br>
+> THE information needed to create a post should include a title, location, date visited, description, and image(s) (optional).
+
 
 
 ## Usage
