@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { User, Threads } = require('../../models'); // Import your User and Threads models
+const { User, Threads } = require('../../models'); // Import User and Threads models
 
 const router = express.Router();
 
