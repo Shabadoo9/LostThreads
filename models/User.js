@@ -29,14 +29,14 @@ User.init(
       },
     },
     display_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     user_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -46,9 +46,12 @@ User.init(
       },
     },
     profile_picture: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
-
+    role: {
+      type: DataTypes.STRING,  // Add this field for user role
+      defaultValue: 'user',    // Default role for a new user
+    },
   },
   {
     hooks: {
