@@ -1,4 +1,2 @@
 DROP DATABASE IF EXISTS threads_db;
 CREATE DATABASE threads_db;
-
-USE DATABASE threads_db;
