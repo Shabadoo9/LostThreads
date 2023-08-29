@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const threads = threadsData.map((threads) => threads.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('home', { 
       threads, 
       logged_in: req.session.logged_in 
     });
