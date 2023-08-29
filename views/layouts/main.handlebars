@@ -14,15 +14,15 @@
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         {{!-- <span role="img" aria-label="money">💸</span> --}}
-        <a href="/">Abandoned Places in Virginia</a>
+        <a href="/">Lost Threads</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/public/profile.js">profile</a> |
+        <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/public/login.js">login</a>
+        <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
