@@ -21,7 +21,7 @@ const hbs = exphbs.create({ helpers });
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.stat ic(path.join(__dirname, 'public')));
 
 const sess = {
   secret: 'Super secret secret',
@@ -63,5 +63,5 @@ app.use(routes);
 //   });
 // });
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on port '+ PORT));
 });
