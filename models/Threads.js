@@ -28,11 +28,11 @@ Threads.init(
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    user_name: { 
+    username: { 
         type: DataTypes.STRING,
         references: {
             model: 'user',
-            key: 'user_name',
+            key: 'username',
         }
     },
     user_id: {

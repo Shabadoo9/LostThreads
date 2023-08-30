@@ -53,7 +53,6 @@ User.init(
     profile_picture: {
         type: DataTypes.STRING,
     },
-
   },
   {
     hooks: {
