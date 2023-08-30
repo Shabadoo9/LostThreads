@@ -8,9 +8,6 @@ const path = require('path');
 const sequelize = require('./config/connection'); // Import Sequelize configuration
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// const apiRoutes = require('./controllers/api'); // Import API routes
-// const homeRoutes = require('./controllers/homeRoutes'); // Import home routes
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -45,21 +42,8 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 
-
-// // Use API routes
-// app.use('/api', apiRoutes);
-
-// // Use home routes
-// app.use('/', homeRoutes);
-
 app.use(routes);
 
-// Sync Sequelize models with the database
-// sequelize.sync().then(() => {
-//   app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-//   });
-// });
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on port '+ PORT));
 });
