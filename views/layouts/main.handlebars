@@ -5,15 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lost Threads</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
-  <link rel="stylesheet" href="/public/style.css">
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+  <div class="ghost"><img src="test/public/img/ghost.png" alt="ghost" width="500" height="600"></div>
+  <input id="btnGhost" type="button" value="Hide Ghost" onclick="ShowHideDiv(this)" />
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        {{!-- <span role="img" aria-label="money">💸</span> --}}
         <a href="/">Lost Threads</a>
       </h1>
       <nav>
@@ -34,10 +35,9 @@
       
     </footer>
   </div>
-  <div class="ghost"></div>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/public/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 

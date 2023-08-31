@@ -4,12 +4,12 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all Threads and JOIN with user data
     const threadsData = await Threads.findAll({
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['name'],
         },
       ],
     });
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const threads = threadsData.map((threads) => threads.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('home', { 
+    res.render('homepage', { 
       threads, 
       logged_in: req.session.logged_in 
     });
@@ -33,7 +33,7 @@ router.get('/threads/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['name'],
         },
       ],
     });

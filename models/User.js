@@ -16,18 +16,9 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -42,16 +33,7 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        isAlphanumeric: true,
-        isStrongPassword: function (value) {
-          if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value)) {
-            throw new Error('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
-          }
-        },
       },
-    },
-    profile_picture: {
-        type: DataTypes.STRING,
     },
   },
   {

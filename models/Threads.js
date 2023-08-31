@@ -11,29 +11,17 @@ Threads.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    date_created: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-    },
-    location: {
-        type: DataTypes.STRING,
-        allowNull: false,
+    name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
     description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+      type: DataTypes.STRING(500),
     },
-    username: { 
-        type: DataTypes.STRING,
-        references: {
-            model: 'user',
-            key: 'username',
-        }
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,

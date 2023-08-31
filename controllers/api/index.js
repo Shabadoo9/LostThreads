@@ -1,12 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 
+const userRoutes = require('./userRoutes');
+const threadsRoutes = require('./threadsRoutes');
 const profileAndThreadRouter = require('./profileAndThreadBuilder');
-const threadsRouter = require('./threadsRoutes');
-const userRouter = require('./userRoutes');
 
+router.use('/users', userRoutes);
+router.use('/threads', threadsRoutes);
 router.use('/profile-thread', profileAndThreadRouter);
-router.use('/threads', threadsRouter);
-router.use('/users', userRouter);
 
 module.exports = router;

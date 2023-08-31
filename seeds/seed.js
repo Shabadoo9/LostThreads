@@ -4,6 +4,7 @@ const { User, Threads } = require('../models');
 const userData = require('./userData.json');
 const threadsData = require('./threadsData.json');
 
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
@@ -18,7 +19,8 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
-
+  
+  threadsData.sort((a, b) => new Date(b.date) - new Date(a.date));
   process.exit(0);
 };
 
