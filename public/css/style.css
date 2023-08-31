@@ -2,75 +2,78 @@ header, .threads:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
   
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+/* ================= Ghost Animation ============== */
+.ghost {
+    pointer-events: none;
+}
+.ghost > * {
+  animation: fly 50s linear infinite;
+  pointer-events: none !important;
+    top: 0;
+    left: 0;
+    transform: translateX(-120%) translateY(-120%) rotateZ(0);
+    position: fixed;
+    animation-delay: 1s;
+    z-index: 999999;
+}
+
+@keyframes fly {
+    98.001%, 0% {
+  display: block;
+  transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
   }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
+
+  15% {
+  transform: translateX(100vw) translateY(-100%) rotateZ(deg)
   }
-  
-  .dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
+
+  15.001%, 18% {
+  transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
   }
-  
-  /* ================= Ghost Animation ============== */
-  .ghost {
-      pointer-events: none;
+
+  40% {
+  transform: translateX(-200%) translateY(3vh) rotateZ(0deg)
   }
-  .ghost > * {
-    /* background-image: url('/test/public/img/ghost.png'); */
-    animation: fly 50s linear infinite;
-    pointer-events: none !important;
-      top: 0;
-      left: 0;
-      transform: translateX(-120%) translateY(-120%) rotateZ(0);
-      position: fixed;
-      animation-delay: 1s;
-      z-index: 999999;
+
+  40.001%, 43% {
+  transform: translateX(-200%) translateY(-100%) rotateZ(0deg)
   }
-  
-  @keyframes fly {
-      98.001%, 0% {
-    display: block;
-    transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
-    }
-  
-    15% {
-    transform: translateX(100vw) translateY(-100%) rotateZ(180deg)
-    }
-  
-    15.001%, 18% {
-    transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
-    }
-  
-    40% {
-    transform: translateX(-200%) translateY(3vh) rotateZ(-180deg)
-    }
-  
-    40.001%, 43% {
-    transform: translateX(-200%) translateY(-100%) rotateZ(-180deg)
-    }
-  
-    65% {
-    transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
-    }
-  
-    65.001%, 68% {
-    transform: translateX(20vw) translateY(-200%) rotateZ(180deg)
-    }
-  
-    95% {
-    transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
-    }
+
+  65% {
+  transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
   }
+
+  65.001%, 68% {
+  transform: translateX(20vw) translateY(-200%) rotateZ(0deg)
+  }
+
+  95% {
+  transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
+  }
+}
+/* Hidden class */
+.hidden {
+    display: none;
+}
   /* ============================================== */

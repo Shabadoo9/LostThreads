@@ -11,8 +11,10 @@
 
 <body>
 
-  <div class="ghost"><img src="https://www.freepnglogos.com/uploads/ghost-png/ghost-clipart-clipart-panda-clipart-images-39.png" alt="ghost" width="100" height="100"></div>
-  {{!-- <input id="btnGhost" type="button" value="Hide Ghost" onclick="ShowHideDiv(this)" /> --}}
+  <div class="ghost" id="ghostanimation">
+    <img src="https://www.freepnglogos.com/uploads/ghost-png/ghost-clipart-clipart-panda-clipart-images-39.png" alt="ghost" width="100" height="100">
+  </div>
+  
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
@@ -26,7 +28,7 @@
         {{else}}
         <a href="/login">login</a>
         {{/if}}
-        <input id="btnGhost" type="button" value="Hide Ghost" onclick="ShowHideDiv(this)" />
+        <button id="btnGhost">Hide</button>
       </nav>
     </header>
     <main class="container container-fluid mt-5">
