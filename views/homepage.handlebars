@@ -1,19 +1,19 @@
+<h2>Recent Threads</h2>
 <!-- Loop over each object in the threads array -->
 {{#each threads as |threads| }}
 <div class="row mb-4 threads">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
+  <div class="col-md-4">
+    <h3>
+      {{!-- {{{get_emoji}}} --}}
       <a href="/threads/{{threads.id}}">{{threads.name}}</a>
-    </h2>
+    </h3>
     <p>
       Created by {{threads.user.name}} on 
       <span for="img" aria-label="calendar">📅</span>
       {{format_date threads.date_created}}
     </p>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-8">
     <p>
       {{threads.description}}
     </p>

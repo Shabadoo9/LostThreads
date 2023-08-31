@@ -17,12 +17,6 @@ header, .threads:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
-
 /* ================= Ghost Animation ============== */
 .ghost {
     pointer-events: none;
