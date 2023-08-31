@@ -1,5 +1,21 @@
 <h2>Recent Threads</h2>
-<!-- Loop over each object in the threads array -->
+
+{{!-- Row for tabs section on homepage --}}
+<div class="row mb-4 tabs">
+  <ul class="tabmenu">
+      <li class="selected"><a href="" class="choice">New</a></li>
+      <li><a href="" class="choice">Houses</a></li>
+      <li><a href="" class="choice">Warehouses</a></li>
+      <li><a href="" class="choice">Historic</a></li>
+      <li><a href="" class="choice">Haunted</a></li>
+      <li><a href="" class="choice">Factories</a></li>
+      <li><a href="" class="choice">Hospitals</a></li>
+      <li><a href="" class="choice">Misc</a></li>
+  </ul>
+
+</div>
+
+<!-- Row to loop over each object in the threads array -->
 {{#each threads as |threads| }}
 <div class="row mb-4 threads">
   <div class="col-md-4">

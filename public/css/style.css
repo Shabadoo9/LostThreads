@@ -70,4 +70,30 @@ header, .threads:not(:last-child) {
 .hidden {
     display: none;
 }
-  /* ============================================== */
+
+
+
+/* ============ Homepage Tab Menu ================== */
+
+.tabmenu {
+  list-style-type: none;
+  white-space: nowrap;
+  display: inline-block;
+  margin-top: 5px;
+  vertical-align: bottom;
+}
+.tabmenu li {
+  display: inline;
+  font-weight: 700;
+}
+.tabmenu li a {
+  padding: 2px 10px 0 4px;
+  background-color: #413c3c;
+}
+.tabmenu li.selected a {
+  color: #ff4500;
+  background-color: #fff;
+  border: 1px solid #cbc937;
+  border-bottom: 1px solid #fff;
+  z-index: 100;
+}
