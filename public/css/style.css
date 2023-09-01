@@ -22,7 +22,7 @@ header, .threads:not(:last-child) {
     pointer-events: none;
 }
 .ghost > * {
-  animation: fly 50s linear infinite;
+  animation: fly 40s linear infinite;
   pointer-events: none !important;
     top: 0;
     left: 0;
