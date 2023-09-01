@@ -28,25 +28,94 @@
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
+        <button class="no-button" id="logout">Logout</button>
         {{/if}}
         <button id="btnGhost">Hide</button>
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
+    {{#if logged_in}}
+    <main class="container container-fluid mt-5"></main>
+     
+        {{{ body }}}
       
-    </footer>
-  </div>
+    </main>
+    {{else}}
+    <h3>Use the toggle switch to login or sign-up!</h3>
+    <div class="section">
+        <div class="container">
+          <div class="row full-height justify-content-center">
+            <div class="col-12 text-center align-self-center py-5">
+              <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                <label for="reg-log"></label>
+                <div class="card-3d-wrap mx-auto">
+                  <div class="card-3d-wrapper">
+
+                    {{!-- Form Card for Login --}}
+                    <div class="card-front">
+                      <div class="center-wrap">
+                        <div class="section text-center">
+                          <h4 class="mb-4 pb-3">Log In</h4>
+                          <form>
+                            <div class="form-group">
+                              <input type="email" name="logemail" class="form-style" placeholder="Email" id="logemail" autocomplete="off">
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input type="password" name="logpass" class="form-style" placeholder="Password" id="logpass" autocomplete="off">
+                            </div>
+                              <button href="/home" type="submit" value="sumbit" class="btn mt-4">submit</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    
+
+                    {{!-- Form card for signup --}}
+                    <div class="card-back">
+                      <div class="center-wrap">
+                        <div class="section text-center">
+                          <h4 class="mb-4 pb-3">Sign Up</h4>
+                          <form>
+                            <div class="form-group">
+                              <input type="text" name="logname" class="form-style" placeholder="Username" id="logname" autocomplete="off">
+                              
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input type="email" name="logemail" class="form-style" placeholder="Email" id="newlogemail" autocomplete="off">
+                              
+                            </div>	
+                            <div class="form-group mt-2">
+                              <input type="password" name="logpass" class="form-style" placeholder="Password" id="newlogpass" autocomplete="off">
+                              
+                            </div>
+                            <button href="/profile" type="submit" value="sumbit" class="btn mt-4">submit</button>
+                          </form>                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  {{/if}}
+  <footer>
+
+  </footer>
+  
+</div>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  {{else}}
+  <script src="/js/login.js"></script>
   {{/if}}
+
+
+
+
 </body>
 
 </html>
