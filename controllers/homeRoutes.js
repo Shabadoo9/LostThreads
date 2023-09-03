@@ -1,7 +1,3 @@
-const router = require('express').Router();
-const { Threads, User } = require('../models');
-const withAuth = require('../utils/auth');
-
 router.get('/', async (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/home');
@@ -14,7 +10,7 @@ router.get('/', async (req, res) => {
 
 router.get('/home', async (req, res) => {
   try {
-    // Get all Threads and JOIN with user data
+    // Get all projects and JOIN with user data
     const threadsData = await Threads.findAll({
       include: [
         {
@@ -24,10 +20,10 @@ router.get('/home', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
-    const threads = threadsData.map((threads) => threads.get({ plain: true }));
+    const totalPages = Math.ceil(threadsData.count / perPage);
 
-    // Pass serialized data and session flag into template
+    const threads = threadsData.rows.map((threads) => threads.get({ plain: true }));
+
     res.render('homepage', { 
       threads, 
       logged_in: req.session.logged_in 
@@ -35,9 +31,7 @@ router.get('/home', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
-
-
+});
 
 router.get('/threads/:id', async (req, res) => {
   try {
@@ -80,15 +74,3 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
-  res.render('login');
-});
-
-module.exports = router;

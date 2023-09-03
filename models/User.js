@@ -28,6 +28,16 @@ User.init(
         isEmail: true,
       },
     },
+    display_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    user_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +45,10 @@ User.init(
         len: [8],
       },
     },
+    profile_picture: {
+        type: DataTypes.STRING,
+    },
+
   },
   {
     hooks: {
