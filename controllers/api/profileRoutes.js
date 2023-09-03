@@ -1,9 +1,10 @@
-const express = require('express');
+const router = require('express').Router();
 const multer = require('multer');
 const path = require('path');
 const { User, Threads } = require('../../models'); // Import User and Threads models
+const withAuth = require('../../utils/auth');
 
-const router = express.Router();
+
 
 // Set up storage for uploaded images
 const storage = multer.diskStorage({
@@ -13,11 +14,12 @@ const storage = multer.diskStorage({
     cb(null, uniqueFilename);
   }
 });
+
 // Initialize Multer middleware
 const upload = multer({ storage });
 
 // Route for creating user profiles
-router.post('/create-profile', upload.single('profilePicture'), async (req, res) => {
+router.post('/edit-profile', upload.single('profilePicture'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No image uploaded' });
   }

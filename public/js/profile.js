@@ -18,7 +18,7 @@ function getGreeting() {
 
 
 const browse = async () => {
-  const response = await fetch('/api/users/logout', {
+  const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
@@ -31,13 +31,13 @@ const browse = async () => {
 };
 
 const create = async () => {
-  const response = await fetch('/api/', {
+  const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    document.location.replace('/create-thread');
+    document.location.replace('/threads');
   } else {
     alert(response.statusText);
   }
