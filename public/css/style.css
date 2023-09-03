@@ -22,7 +22,7 @@ header, .threads:not(:last-child) {
     pointer-events: none;
 }
 .ghost > * {
-  animation: fly 40s linear infinite;
+  animation: fly 40s linear infinite, fade 7s ease-in-out infinite;
   pointer-events: none !important;
     top: 0;
     left: 0;
@@ -33,7 +33,7 @@ header, .threads:not(:last-child) {
 }
 
 @keyframes fly {
-    98.001%, 0% {
+  98.001%, 0% {
   display: block;
   transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
   }
@@ -65,6 +65,12 @@ header, .threads:not(:last-child) {
   95% {
   transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
   }
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 /* Hidden class */
 .hidden {
