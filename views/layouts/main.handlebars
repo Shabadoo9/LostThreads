@@ -27,10 +27,10 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">Logout</button>
+        <a href="/profile">Profile</a> |
+        <a class="no-button" id="logout">Logout</a>
         {{/if}}
-        <button id="btnGhost">Hide</button>
+        <a id="btnGhost">Hide Ghost</a>
       </nav>
     </header>
     {{#if logged_in}}
@@ -109,10 +109,10 @@
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{else}}
-  <script src="/js/login.js"></script>
   {{/if}}
 
+  <script src="/js/login.js"></script> 
+  <script src="/js/ghost.js"></script>
 
 
 
