@@ -37,7 +37,7 @@ const create = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/createthread');
+    document.location.replace('/create-thread');
   } else {
     alert(response.statusText);
   }
