@@ -19,6 +19,7 @@ const loginFormHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
+      alert("Please Sign-Up or try a different email/password!");
     }
   }
 };

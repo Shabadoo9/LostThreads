@@ -1,14 +1,17 @@
 [
     {
       "name": "Scottesville Haunted House",
+      "category": "Haunted",
       "description": "Nestled within the quaint town of Scottesville, Virginia, the abandoned house stands..."
     },
     {
       "name": "Abandoned Warehouse in Scotts Addition",
+      "category": "Warehouses",
       "description": "In the heart of Scott's Addition, Richmond's urban district known for its industrial charm, an abandoned warehouse stands..."
     },
     {
       "name": "Abandoned Hospital in Crewe, VA",
+      "category": "Hospitals",
       "description": "In the quiet town of Crewe, Virginia, an eerie and imposing structure stands as a haunting reminder of its past..."
     }
   ]
