@@ -24,7 +24,7 @@ const newFormHandler = async (event) => {
 
 
       if (imageFiles.files.length > 0) { // Check if imageFiles exists and has files
-        formData.append('threads-image', imageInput.files[0]); // Append each selected image file
+        formData.append('threads-image', imageFiles.files[0]); // Append each selected image file
       }
 
       console.log(...formData);
