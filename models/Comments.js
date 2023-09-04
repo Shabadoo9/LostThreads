@@ -30,7 +30,7 @@ Comments.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Threads', // This should match the actual table name of your Threads model
+        model: 'Threads',
         key: 'id',
       },
     },
