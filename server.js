@@ -48,8 +48,8 @@ sequelize.sync({ force: false }).then(() => {
 
 
 // Dropbox setup
-const Dropbox = require('dropbox').Dropbox;
+// const Dropbox = require('dropbox').Dropbox;
 
-const dbx = new Dropbox({
-  accessToken: process.env.ACCESS_TOKEN
-});
+// const dbx = new Dropbox({
+//   accessToken: process.env.ACCESS_TOKEN
+// });
