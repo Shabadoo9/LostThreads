@@ -1,32 +1,32 @@
-const router = require('express').Router();
-const multer = require('multer');
-const path = require('path');
-const { User, Threads } = require('../../models'); // Import User and Threads models
-const withAuth = require('../../utils/auth');
+//const router = require('express').Router();
+//const multer = require('multer');
+//const path = require('path');
+//const { User, Threads } = require('../../models'); // Import User and Threads models
+//const withAuth = require('../../utils/auth');
 
 
 
 // Set up storage for uploaded images
-const storage = multer.diskStorage({
-  destination: './public/uploads/',
-  filename: (req, file, cb) => {
-    const uniqueFilename = `${file.fieldname}-${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`;
-    cb(null, uniqueFilename);
-  }
-});
+//const storage = multer.diskStorage({
+  //destination: './public/uploads/',
+  //filename: (req, file, cb) => {
+   // const uniqueFilename = `${file.fieldname}-${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`;
+   // cb(null, uniqueFilename);
+ // }
+//});
 
 // Initialize Multer middleware
-const upload = multer({ storage });
+//const upload = multer({ storage });
 
 
-router.get('/', withAuth, async (req, res) => {
-  if (req.session.logged_in) {
-    res.render('createThread');
-    return;
-  }
+//router.get('/', withAuth, async (req, res) => {
+  //if (req.session.logged_in) {
+ //   res.render('createThread');
+ //   return;
+//  }
 
-  res.render('login');
-});
+ // res.render('login');
+//});
 
 
 
