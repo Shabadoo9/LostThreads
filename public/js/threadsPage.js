@@ -1,5 +1,3 @@
-// threads.js
-
 // Select elements
 const addCommentButton = document.getElementById("add-comment-button");
 const commentBox = document.getElementById("comment-box");
@@ -9,7 +7,11 @@ const submitCommentButton = document.getElementById("submit-comment-button");
 // Add a click event listener to the "Add Comment" button
 addCommentButton.addEventListener("click", () => {
   // Toggle the visibility of the comment box
-  commentBox.style.display = "block"; // You can use "block" or "none" to show/hide
+  if (commentBox.style.display === "block") {
+    commentBox.style.display = "none"; // Hide the comment box if it's shown
+  } else {
+    commentBox.style.display = "block"; // Show the comment box if it's hidden
+  }
 });
 
 // Add a click event listener to the "Submit" button
