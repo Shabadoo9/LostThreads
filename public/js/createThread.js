@@ -1,4 +1,4 @@
-const create = async () => {
+/* const create = async () => {
   const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -10,7 +10,7 @@ const create = async () => {
     alert(response.statusText);
   }
 };
-
+*/
 const newFormHandler = async (event) => {
     event.preventDefault();
   
