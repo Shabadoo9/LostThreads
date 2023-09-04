@@ -4,7 +4,7 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#threads-name').value.trim();
     const category = document.querySelector('#threads-category').value.trim();
     const description = document.querySelector('#threads-desc').value.trim();
-    const imageInput = document.querySelector('#threads-image').value;
+    const imageInput = document.querySelector('#threads-image');
 
 
     if (name && category && description) {
