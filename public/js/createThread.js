@@ -23,7 +23,7 @@ const newFormHandler = async (event) => {
       formData.append('description', description);
 
 
-      for (let i=0; i < imageFiles.length; i++) {
+      if (imageFiles.files.length > 0) {
         formData.append('image', imageFiles.files[i]);
       }
 
