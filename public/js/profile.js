@@ -17,34 +17,24 @@ function getGreeting() {
 }
 
 
-const browse = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
+//Profile button click events
+const editProfileBtn = document.getElementById("editProfileBtn");
+editProfileBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/edit-profile');;
+});
 
-  if (response.ok) {
-    document.location.replace('/home');
-  } else {
-    alert(response.statusText);
-  }
-};
+const browseBtn = document.getElementById("browseBtn");
+browseBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/');;
+});
 
-const create = async () => {
-  const response = await fetch('/api/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-
-  if (response.ok) {
-    document.location.replace('/create-thread');
-  } else {
-    alert(response.statusText);
-  }
-};
+const createBtn = document.getElementById("createBtn");
+createBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/createThread');;
+});
 
 
 
-getGreeting();
-document.getElementById('browseBtn').addEventListener('click', browse);
-document.getElementById('createBtn').addEventListener('click', create);

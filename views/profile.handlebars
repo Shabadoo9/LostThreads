@@ -1,19 +1,37 @@
+
 <div class="row">
-  <div class="col-auto">
+  <div class="col">
     <h2 id="greeting"></h2><h2> {{name}}!</h2>
+  </div>
+
+  <div class="col">
+    <a href="#" class="btn btn-primary" id="editProfileBtn">Edit Profile</a>
+  </div>  
+  <div class="col">
+    <a href="#" class="btn btn-primary" id="browseBtn">Browse Threads</a>
+  </div>  
+  <div class="col">
+    <a href="#" class="btn btn-primary" id="createBtn">Create a Thread</a>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <a href="/home" type="submit" value="submit" class="btn btn-primary" id="browseBtn">Browse Threads</a>
-    <a href="/createthread" type="submit" value="submit" class="btn btn-primary" id="createBtn">Create a Thread</a>
+
+<div class="row">
+  <div class="col-6">
     <h3>Your Threads:</h3>
 
-    <h3>Starred Threads:</h3>
+<div class="row">
+  <div class="col-6">
+    <h3>Your Threads:</h3>
   </div>
 
-  {{#if threads.length}}
+  <div class="col-6">
+    <h3>Liked Threads:</h3>
+  </div>
+</div>
+
+
+  {{!-- {{#if threads.length}}
   <div class="col-md-6 threads-list">
     <h3>Current Threads:</h3>
 
@@ -29,6 +47,6 @@
     {{/each}}
   </div>
   {{/if}}
-</div>
+</div> --}}
 
-<script src="/public/js/profile.js"></script>
+<script src="/js/profile.js"></script>

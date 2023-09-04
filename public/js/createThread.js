@@ -1,3 +1,16 @@
+/* const create = async () => {
+  const response = await fetch('/api/users', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/threads');
+  } else {
+    alert(response.statusText);
+  }
+};
+*/
 const newFormHandler = async (event) => {
     event.preventDefault();
   
