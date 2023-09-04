@@ -1,6 +1,6 @@
 <h3>Create a New Thread:</h3>
 
-    <form class="form new-threads-form">
+    <form class="form new-threads-form" id="new-thread-form" enctype="multipart/form-data">
       <div class="form-group">
         {{!-- Add thread name --}}
         <label for="threads-name">Thread Name:</label>
@@ -32,11 +32,10 @@
       </div>
       <div class="row">
         <div class="form-group">
-          <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" placeholder="Image URL">
-            <input type="file" name="image" accept="image/*">
-            <button type="submit">Upload</button>
-          </form>
+    
+            <label for="threads-image">Image (JPG only): </label>
+            <input type="file" id="threads-image" name="image">
+   
         </div>
       </div>
 

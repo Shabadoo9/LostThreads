@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const Dropbox = require('dropbox').Dropbox;
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -45,11 +44,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-// Dropbox setup
-// const Dropbox = require('dropbox').Dropbox;
-
-// const dbx = new Dropbox({
-//   accessToken: process.env.ACCESS_TOKEN
-// });
