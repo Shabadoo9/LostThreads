@@ -91,4 +91,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-module.exports = router;
+router.get('/create-thread', withAuth, async (req, res) => {
+  console.log('Session logged_in:', req.session.logged_in); // Check session status
+  try {
+    res.render('createThread');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+  module.exports = router;
