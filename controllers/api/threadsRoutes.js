@@ -85,4 +85,4 @@ router.post('/api/threads', upload.single('image'), async (req, res) => {
 
 
 
-module.exports = {router, storage, upload};
+module.exports = router;
