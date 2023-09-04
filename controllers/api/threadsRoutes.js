@@ -2,6 +2,12 @@ const router = require('express').Router();
 const { User, Threads } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Dropbox setup
+const Dropbox = require('dropbox').Dropbox;
+
+const dbx = new Dropbox({
+  accessToken: process.env.ACCESS_TOKEN
+});
 
 // router.get('/', withAuth, async (req, res) => {
 //   if (req.session.logged_in) {
