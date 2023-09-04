@@ -1,3 +1,4 @@
+// Create a new Thread
 const newFormHandler = async (event) => {
     event.preventDefault();
   
@@ -22,7 +23,7 @@ const newFormHandler = async (event) => {
       formData.append('description', description);
 
 
-      for (let i=0; i < imageFiles.files.length; i++) {
+      for (let i=0; i < imageFiles.length; i++) {
         formData.append('image', imageFiles.files[i]);
       }
 
