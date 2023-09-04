@@ -91,9 +91,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/createThread.handlebars', async (req, res) => {
+router.get('/createThread', async (req, res) => {
   try {
-   res.render('createthread'); 
+   res.render('createThread'); 
   } catch (err) {
     res.status(500).json(err);
   }
