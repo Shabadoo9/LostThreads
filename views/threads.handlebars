@@ -7,21 +7,15 @@
   </p>
   <p>{{description}}</p>
   <div class="comment-dropdown">
-    <button class="btn btn-primary" onclick="toggleCommentBox()">Add Comment</button>
+    <button id="add-comment-button" class="btn btn-primary">Add Comment</button>
     <div id="comment-box" class="comment-box">
       <!-- Comment form goes here -->
       <form>
-        <textarea class="form-control" rows="3" placeholder="Write your comment"></textarea>
-        <button class="btn btn-success">Submit</button>
+        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
+        <button id="submit-comment-button" class="btn btn-success">Submit</button>
       </form>
     </div>
   </div>
 </div>
-<script>
-  // JavaScript function to toggle the comment box visibility
-  function toggleCommentBox() {
-    const commentBox = document.getElementById('comment-box');
-    commentBox.classList.toggle('show');
-  }
-</script>
 
+<script src="/js/threads.js"></script>
