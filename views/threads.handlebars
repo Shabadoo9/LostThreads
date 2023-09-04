@@ -7,16 +7,14 @@
   </p>
   <p>Category: {{category}}</p>
   <p>{{description}}</p>
-
-  <!-- Comment section -->
-  <div class="comments-section">
-    <h3>Comments</h3>
-    <ul class="comments-list">
-      <!-- Comment items will be added here dynamically -->
-    </ul>
-    <div class="comment-form">
-      <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
-      <button id="submit-comment-button" class="btn btn-success">Submit</button>
+  <div class="comment-dropdown">
+    <button id="add-comment-button" class="btn btn-primary">Add Comment</button>
+    <div id="comment-box" class="comment-box">
+      <!-- Comment form goes here -->
+      <form>
+        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
+        <button id="submit-comment-button" class="btn btn-success">Submit</button>
+      </form>
     </div>
   </div>
 </div>
