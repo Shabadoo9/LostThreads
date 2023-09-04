@@ -1,25 +1,24 @@
 // Select elements
+const addCommentButton = document.getElementById("add-comment-button");
+const commentBox = document.getElementById("comment-box");
 const commentTextarea = document.getElementById("comment-textarea");
 const submitCommentButton = document.getElementById("submit-comment-button");
-const commentsList = document.querySelector(".comments-list");
 
-// Function to render comments
-function renderComments(comments) {
-  commentsList.innerHTML = "";
-  comments.forEach((comment) => {
-    const commentItem = document.createElement("div");
-    commentItem.classList.add("comment");
-    commentItem.innerHTML = `
-      <p><strong>${comment.User.name}</strong></p>
-      <p>${formatDate(comment.date_created)}</p>
-      <p>${comment.description}</p>
-    `;
-    commentsList.appendChild(commentItem);
-  });
-}
+// Add a click event listener to the "Add Comment" button
+addCommentButton.addEventListener("click", () => {
+  // Toggle the visibility of the comment box
+  if (commentBox.style.display === "block") {
+    commentBox.style.display = "none"; // Hide the comment box if it's shown
+  } else {
+    commentBox.style.display = "block"; // Show the comment box if it's hidden
+  }
+});
 
 // Add a click event listener to the "Submit" button
-submitCommentButton.addEventListener("click", async () => {
+submitCommentButton.addEventListener("click", async (e) => {
+  e.preventDefault(); // Prevent the form from submitting (you can send the data to your server here)
+
+  // Get the comment text from the textarea
   const commentText = commentTextarea.value;
 
   // Create a new comment on the server and fetch updated comments
@@ -37,6 +36,9 @@ submitCommentButton.addEventListener("click", async () => {
     renderComments(newComments);
     commentTextarea.value = "";
   }
+
+  // Hide the comment box
+  commentBox.style.display = "none";
 });
 
 // Function to format dates (replace with your date formatting function)
