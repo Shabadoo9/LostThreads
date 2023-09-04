@@ -1,8 +1,23 @@
-// Select elements
 const addCommentButton = document.getElementById("add-comment-button");
 const commentBox = document.getElementById("comment-box");
 const commentTextarea = document.getElementById("comment-textarea");
 const submitCommentButton = document.getElementById("submit-comment-button");
+const commentsList = document.querySelector(".comments-list"); // Add this line
+
+// Function to render comments
+function renderComments(comments) {
+  commentsList.innerHTML = "";
+  comments.forEach((comment) => {
+    const commentItem = document.createElement("div");
+    commentItem.classList.add("comment");
+    commentItem.innerHTML = `
+      <p><strong>${comment.User.name}</strong></p>
+      <p>${formatDate(comment.date_created)}</p>
+      <p>${comment.description}</p>
+    `;
+    commentsList.appendChild(commentItem);
+  });
+}
 
 // Add a click event listener to the "Add Comment" button
 addCommentButton.addEventListener("click", () => {
