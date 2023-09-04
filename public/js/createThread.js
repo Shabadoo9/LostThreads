@@ -2,19 +2,20 @@ const newFormHandler = async (event) => {
     event.preventDefault();
   
     const name = document.querySelector('#threads-name').value.trim();
+    const category = document.querySelector('#threads-category').value.trim();
     const description = document.querySelector('#threads-desc').value.trim();
   
-    if (name && description) {
+    if (name && category && description) {
       const response = await fetch(`/api/threads`, {
         method: 'POST',
-        body: JSON.stringify({ name, description }),
+        body: JSON.stringify({ name, category, description }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/home');
       } else {
         alert('Failed to create threads');
       }
