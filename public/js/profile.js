@@ -33,7 +33,7 @@ browseBtn.addEventListener('click', function(e) {
 const createBtn = document.getElementById("createBtn");
 createBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  document.location.replace('/create-thread');;
+  document.location.replace('/createThread');;
 });
 
 
