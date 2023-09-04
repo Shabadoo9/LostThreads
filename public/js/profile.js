@@ -30,7 +30,7 @@ const browse = async () => {
   }
 };
 
-const create = async () => {
+/* const create = async () => {
   const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -42,9 +42,9 @@ const create = async () => {
     alert(response.statusText);
   }
 };
-
+*/
 
 
 getGreeting();
 document.getElementById('browseBtn').addEventListener('click', browse);
-document.getElementById('createBtn').addEventListener('click', create);
+//document.getElementById('createBtn').addEventListener('click', create);
