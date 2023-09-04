@@ -91,7 +91,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/createThread', async (req, res) => {
+router.get('/createThread', withAuth, async (req, res) => {
   try {
    res.render('createThread'); 
   } catch (err) {
