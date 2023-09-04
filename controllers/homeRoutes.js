@@ -94,7 +94,10 @@ router.get('/login', (req, res) => {
 router.get('/createThread', withAuth, async (req, res) => {
   console.log('Session logged_in:', req.session.logged_in); // Check session status
   try {
-    res.render('createThread');
+    res.render('createThread', { 
+      logged_in: req.session.logged_in 
+    });
+    
   } catch (err) {
     res.status(500).json(err);
   }
