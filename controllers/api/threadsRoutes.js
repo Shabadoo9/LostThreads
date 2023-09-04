@@ -51,7 +51,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 // Uploading images
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/');
+    cb(null, '/public/uploads');
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -85,4 +85,4 @@ router.post('/api/threads', upload.single('image'), async (req, res) => {
 
 
 
-module.exports = router;
+module.exports = {router, storage, upload};
