@@ -4,7 +4,7 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#threads-name').value.trim();
     const category = document.querySelector('#threads-category').value.trim();
     const description = document.querySelector('#threads-desc').value.trim();
-    const imageInput = document.querySelector('#threads-image');
+    const imageFiles = document.querySelector('#threads-image');
 
 
     if (name && category && description) {
@@ -17,14 +17,16 @@ const newFormHandler = async (event) => {
       // });
       
       const formData = new FormData(); // Create a FormData object to handle file uploads
-      FormData.append('name', name);
-      FormData.append('category', category);
-      FormData.append('description', description);
+      formData.append('name', name);
+      formData.append('category', category);
+      formData.append('description', description);
 
 
-      if (imageInput.files.length > 0) {
-        FormData.append('image', imageInput.files[0]);
+      for (let i=0; i < imageFiles.files.length; i++) {
+        formData.append('image', imageFiles.files[i]);
       }
+
+      console.log(...formData);
 
       // if (response.ok) {
       //   document.location.replace('/home');
@@ -35,7 +37,7 @@ const newFormHandler = async (event) => {
       try {
         const response = await fetch('/api/threads', {
           method: 'POST',
-          body: FormData, // Use the FormData object as the request body
+          body: formData, // Use the FormData object as the request body
         });
   
         if (response.ok) {
