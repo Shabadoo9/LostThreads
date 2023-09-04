@@ -5,6 +5,61 @@
         <label for="threads-name">Thread Name:</label>
         <input class="form-input" type="text" id="threads-name" name="threads-name" />
       </div>
+      {{!-- category choices --}}
+      <fieldset class="form-group">
+        <div class="row">
+            <label for="threads-name">Category:</label>
+        </div>
+        <div class="row">
+          <select class="form-input" id="category" name="category">
+            <option value="" disabled selected>Choose a Category for Your Thread</option>
+            <option value="Houses">Houses</option>
+            <option value="Warehouses">Warehouses</option>
+            <option value="Historic">Historic</option>
+            <option value="Haunted">Haunted</option>
+            <option value="Factories">Factories</option>
+            <option value="Hospitals">Hospitals</option>
+            <option value="Misc">Misc</option>
+          </select>
+          {{!-- <div class="col">
+            <div>
+              <input type="checkbox" id="houses" name="Houses" />
+              <label for="houses">Houses</label>
+            </div>
+            <div>
+              <input type="checkbox" id="warehouses" name="Warehouses" />
+              <label for="warehouses">Warehouses</label>
+            </div>
+          </div>
+          <div class="col">
+              <div>
+                <input type="checkbox" id="historic" name="Historic" />
+                <label for="historic">Historic</label>
+              </div>
+              <div>
+                <input type="checkbox" id="haunted" name="Haunted" />
+                <label for="haunted">Haunted</label>
+              </div>
+          </div>
+          <div class="col">
+              <div>
+                <input type="checkbox" id="factories" name="Factories" />
+                <label for="factories">Factories</label>
+              </div>
+              <div>
+                <input type="checkbox" id="hospitals" name="Hospitals" />
+                <label for="hospitals">Hospitals</label>
+              </div>
+          </div>
+          <div class="col">
+              <div>
+                <input type="checkbox" id="misc" name="Misc" />
+                <label for="misc">Misc</label>
+              </div>
+          </div> --}}
+        </div>
+      </fieldset>
+
       <div class="form-group">
         <label for="threads-desc">Description:</label>
         <textarea class="form-input" id="threads-desc" name="threads-desc"></textarea>
