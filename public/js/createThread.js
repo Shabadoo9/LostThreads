@@ -17,13 +17,13 @@ const newFormHandler = async (event) => {
       // });
       
       const formData = new FormData(); // Create a FormData object to handle file uploads
-      formData.append('name', name);
-      formData.append('category', category);
-      formData.append('description', description);
+      FormData.append('name', name);
+      FormData.append('category', category);
+      FormData.append('description', description);
 
 
       if (imageInput.files.length > 0) {
-        formData.append('image', imageInput.files[0]);
+        FormData.append('image', imageInput.files[0]);
       }
 
       // if (response.ok) {
@@ -35,7 +35,7 @@ const newFormHandler = async (event) => {
       try {
         const response = await fetch('/api/threads', {
           method: 'POST',
-          body: formData, // Use the FormData object as the request body
+          body: FormData, // Use the FormData object as the request body
         });
   
         if (response.ok) {
