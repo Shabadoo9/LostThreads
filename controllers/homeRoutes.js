@@ -91,4 +91,11 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-module.exports = router;
+router.get('/createthread.handlebars', async (req, res) => {
+  try {
+   res.render('createthread'); 
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+  module.exports = router;
