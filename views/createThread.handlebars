@@ -2,18 +2,20 @@
 
     <form class="form new-threads-form">
       <div class="form-group">
+        {{!-- Add thread name --}}
         <label for="threads-name">Thread Name:</label>
         <input class="form-input" type="text" id="threads-name" name="threads-name" />
       </div>
-      {{!-- category choices --}}
-      <fieldset class="form-group">
+
+      <div class="form-group">
         <div class="row">
             <label for="threads-category">Category:</label>
         </div>
+        {{!-- category choices --}}
         <div class="row">
           <select class="form-input" id="threads-category" name="threads-category">
             <option value="" disabled selected>Choose a Category for Your Thread</option>
-            <option value="Houses">Houses</option>
+            <option class="threads-"value="Houses">Houses</option>
             <option value="Warehouses">Warehouses</option>
             <option value="Historic">Historic</option>
             <option value="Haunted">Haunted</option>
@@ -21,51 +23,29 @@
             <option value="Hospitals">Hospitals</option>
             <option value="Misc">Misc</option>
           </select>
-          {{!-- <div class="col">
-            <div>
-              <input type="checkbox" id="houses" name="Houses" />
-              <label for="houses">Houses</label>
-            </div>
-            <div>
-              <input type="checkbox" id="warehouses" name="Warehouses" />
-              <label for="warehouses">Warehouses</label>
-            </div>
-          </div>
-          <div class="col">
-              <div>
-                <input type="checkbox" id="historic" name="Historic" />
-                <label for="historic">Historic</label>
-              </div>
-              <div>
-                <input type="checkbox" id="haunted" name="Haunted" />
-                <label for="haunted">Haunted</label>
-              </div>
-          </div>
-          <div class="col">
-              <div>
-                <input type="checkbox" id="factories" name="Factories" />
-                <label for="factories">Factories</label>
-              </div>
-              <div>
-                <input type="checkbox" id="hospitals" name="Hospitals" />
-                <label for="hospitals">Hospitals</label>
-              </div>
-          </div>
-          <div class="col">
-              <div>
-                <input type="checkbox" id="misc" name="Misc" />
-                <label for="misc">Misc</label>
-              </div>
-          </div> --}}
         </div>
-      </fieldset>
-
-      <div class="form-group">
-        <label for="threads-desc">Description:</label>
-        <textarea class="form-input" id="threads-desc" name="threads-desc"></textarea>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+
+      {{!-- Uploading pictures --}}
+      <div class="row">
+        <div class="form-group">
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="Title">
+            <input type="file" name="image" accept="image/*">
+            <button type="submit">Upload</button>
+          </form>
+        </div>
+      </div>
+
+      {{!-- Add description --}}
+      <div class="row">
+        <div class="form-group">
+          <label for="threads-desc">Description:</label>
+          <textarea class="form-input" id="threads-desc" name="threads-desc"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
       </div>
     </form>
 
