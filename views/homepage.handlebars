@@ -3,36 +3,37 @@
 {{!-- Row for tabs section on homepage --}}
 <div class="row mb-4 tabs">
   <ul class="tabmenu">
-      <li class="selected"><a href="" class="choice">New</a></li>
-      <li><a href="" class="choice">Houses</a></li>
-      <li><a href="" class="choice">Warehouses</a></li>
-      <li><a href="" class="choice">Historic</a></li>
-      <li><a href="" class="choice">Haunted</a></li>
-      <li><a href="" class="choice">Factories</a></li>
-      <li><a href="" class="choice">Hospitals</a></li>
-      <li><a href="" class="choice">Misc</a></li>
+      <li><a href="#" class="choice">New</a></li>
+      <li><a href="#" class="choice" data-category="Houses">Houses</a></li>
+      <li><a href="#" class="choice" data-category="Warehouses">Warehouses</a></li>
+      <li><a href="#" class="choice" data-category="Historic">Historic</a></li>
+      <li><a href="#" class="choice" data-category="Haunted">Haunted</a></li>
+      <li><a href="#" class="choice" data-category="Factories">Factories</a></li>
+      <li><a href="#" class="choice" data-category="Hospitals">Hospitals</a></li>
+      <li><a href="#" class="choice" data-category="Misc">Misc</a></li>
   </ul>
-
 </div>
 
 <!-- Row to loop over each object in the threads array -->
 {{#each threads as |threads| }}
 <div class="row mb-4 threads">
-  <div class="col-md-4">
-    <h3>
-      {{!-- {{{get_emoji}}} --}}
-      <a href="/threads/{{threads.id}}">{{threads.name}}</a>
-    </h3>
-    <p>
-      Created by {{threads.user.name}} on 
-      <span for="img" aria-label="calendar">📅</span>
-      {{format_date threads.date_created}}
-    </p>
-  </div>
-  <div class="col-md-8">
-    <p>
-      {{threads.description}}
-    </p>
-  </div>
+    <div class="col-md-4">
+      <h3>
+        {{!-- {{{get_emoji}}} --}}
+        <a href="/threads/{{threads.id}}">{{threads.name}}</a>
+      </h3>
+      <p>
+        Created by {{threads.user.name}} on 
+        <span for="img" aria-label="calendar">📅</span>
+        {{format_date threads.date_created}}
+      </p>
+    </div>
+    <div class="col-md-8">
+      <p>
+        {{threads.description}}
+      </p>
+    </div>
 </div>
 {{/each}}
+
+<script src="/js/index.js"></script>
