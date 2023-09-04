@@ -16,35 +16,24 @@ function getGreeting() {
   document.getElementById('greeting').textContent = greeting;
 }
 
-
-const browse = async () => {
-  const response = await fetch('/api/users', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-
-  if (response.ok) {
-    document.location.replace('/home');
-  } else {
-    alert(response.statusText);
-  }
-};
-
-const create = async () => {
-  const response = await fetch('/api/users', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-
-  if (response.ok) {
-    document.location.replace('/threads');
-  } else {
-    alert(response.statusText);
-  }
-};
-
-
-
 getGreeting();
-document.getElementById('browseBtn').addEventListener('click', browse);
-document.getElementById('createBtn').addEventListener('click', create);
+
+
+//Profile button click events
+const editProfileBtn = document.getElementById("editProfileBtn");
+editProfileBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/edit-profile');;
+});
+
+const browseBtn = document.getElementById("browseBtn");
+browseBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/');;
+});
+
+const createBtn = document.getElementById("createBtn");
+createBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.location.replace('/create-thread');;
+});

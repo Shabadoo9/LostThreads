@@ -1,4 +1,4 @@
-// Get all the list items with class "choice"
+// Tab functionality to highlight selected tab
 const tab = document.querySelectorAll('.tabmenu li');
 
 //Remove "selected" from all tabs and give clicked tab the class="selected"
@@ -15,16 +15,11 @@ tab.forEach(item => {
 
 
 
-
-
-
-
-
+//Tab and filter functionality to filter by data-category upon selecting a tab
 document.addEventListener("DOMContentLoaded", function() {
-  // Get all tab choices
+
   const choices = document.querySelectorAll('.choice');
 
-  // Add event listener to each choice
   choices.forEach(choice => {
     choice.addEventListener('click', function(e) {
       e.preventDefault();
