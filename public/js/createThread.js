@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#threads-name').value.trim();
     const category = document.querySelector('#threads-category').value.trim();
     const description = document.querySelector('#threads-desc').value.trim();
-    const imageFiles = document.querySelector('#threads-image').value.trim();
+    const imageFiles = document.querySelector('#threads-image');
 
 
     if (name && category && description) {
@@ -23,8 +23,10 @@ const newFormHandler = async (event) => {
       formData.append('description', description);
 
 
-      if (imageFiles.files.length > 0) {
-        formData.append('image', imageFiles.files[i]);
+      if (imageFiles && imageFiles.files.length > 0) { // Check if imageFiles exists and has files
+        for (let i = 0; i < imageFiles.files.length; i++) {
+          formData.append('image', imageFiles.files[i]); // Append each selected image file
+        }
       }
 
       console.log(...formData);
