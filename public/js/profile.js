@@ -17,7 +17,7 @@ function getGreeting() {
 }
 
 
-const browse = async () => {
+/* const browse = async () => {
   const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -30,7 +30,7 @@ const browse = async () => {
   }
 };
 
-const create = async () => {
+ const create = async () => {
   const response = await fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -48,3 +48,4 @@ const create = async () => {
 getGreeting();
 document.getElementById('browseBtn').addEventListener('click', browse);
 document.getElementById('createBtn').addEventListener('click', create);
+*/
