@@ -28,9 +28,12 @@
 
       {{!-- Uploading pictures --}}
       <div class="row">
+        <label for="threads-category">Upload Image:</label>
+      </div>
+      <div class="row">
         <div class="form-group">
           <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="title" placeholder="Image URL">
             <input type="file" name="image" accept="image/*">
             <button type="submit">Upload</button>
           </form>
