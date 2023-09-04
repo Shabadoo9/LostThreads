@@ -26,6 +26,14 @@ Comments.init(
         key: 'id',
       },
     },
+    thread_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Threads', // This should match the actual table name of your Threads model
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
