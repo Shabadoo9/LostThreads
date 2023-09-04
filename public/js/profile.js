@@ -18,7 +18,6 @@ function getGreeting() {
 
 getGreeting();
 
-
 //Profile button click events
 const editProfileBtn = document.getElementById("editProfileBtn");
 editProfileBtn.addEventListener('click', function(e) {
@@ -35,5 +34,8 @@ browseBtn.addEventListener('click', function(e) {
 const createBtn = document.getElementById("createBtn");
 createBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  document.location.replace('/create-thread');;
+  document.location.replace('/createThread');;
 });
+
+
+
