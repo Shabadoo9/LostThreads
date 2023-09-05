@@ -5,7 +5,8 @@ const submitCommentButton = document.getElementById("submit-comment-button");
 const commentsList = document.querySelector(".comments-list");
 const threadId = window.location.pathname.split('/').pop();
 
-document.addEventListener("DOMContentLoaded", () => {
+
+// document.addEventListener("DOMContentLoaded", () => {
   // Function to render comments
   function renderComments(comments) {
     console.log("Received comments:", comments); // Add this line
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Add a click event listener to the "Add Comment" button
-  const addCommentButton = document.getElementById("add-comment-button");
+  // const addCommentButton = document.getElementById("add-comment-button");
   addCommentButton.addEventListener("click", () => {
     // Toggle the visibility of the comment box
     const commentBox = document.getElementById("comment-box");
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Add a click event listener to the "Submit" button
-  const submitCommentButton = document.getElementById("submit-comment-button");
+  // const submitCommentButton = document.getElementById("submit-comment-button");
   submitCommentButton.addEventListener("click", async (e) => {
     e.preventDefault(); // Prevent the form from submitting (you can send the data to your server here)
 
@@ -81,4 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
       renderComments(comments);
     }
   });
-});
+// });

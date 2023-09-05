@@ -1,3 +1,13 @@
+window.addEventListener('scroll', function () {
+  const header = document.querySelector('header');
+  const scrollY = window.scrollY;
+
+  if (scrollY > 0) {
+      header.classList.add('sticky');
+  } 
+});
+
+
 // Tab functionality to highlight selected tab
 const tab = document.querySelectorAll('.tabmenu li');
 

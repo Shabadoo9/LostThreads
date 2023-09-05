@@ -14,6 +14,7 @@ Threads.belongsTo(User, {
 
 User.hasMany(Comments, { // User has many Comments
   foreignKey: 'user_id',
+  as:'user',
   onDelete: 'CASCADE'
 });
 
@@ -23,7 +24,8 @@ Threads.hasMany(Comments, { // Threads has many Comments
 });
 
 Comments.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  as: 'user',
 });
 
 Comments.belongsTo(Threads, {
