@@ -262,6 +262,20 @@ h6 span{
 }
 
 
+/* ================ Create a Thread ==================== */
+.createThread-wrapper {
+  margin: 0% 30%;
+  margin-top: 3%;
+  padding: 40px;
+  background-color: #35363f;
+  border-radius: 1%;
+}
+
+.createThread-wrapper h3 {
+  color: #c2d419;
+}
+
+
 /* ============== Toggle Login/Signup =================== */
 .section{
   position: relative;
