@@ -20,7 +20,7 @@
     <div class="comments-list">
       {{#each comments}}
       <div class="comment">
-        <p><strong>{{user.name}}</strong></p>
+        <p><strong>{{this.user.name}}</strong></p>
         <p>{{format_date this.date_created}}</p>
         <p>{{this.description}}</p>
       </div>
