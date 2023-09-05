@@ -39,16 +39,16 @@ createBtn.addEventListener('click', function(e) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("/api/my-threads"); // Use the new route for user-specific threads
+    const response = await fetch("/api/my-threads");
     if (response.ok) {
       const data = await response.json();
       const threads = data.threads;
 
-      // Assuming you have a Handlebars template with an ID like "thread-template"
+      
       const templateSource = document.getElementById("thread-template").innerHTML;
       const template = Handlebars.compile(templateSource);
 
-      // Assuming you have a container where you want to display the threads, like an element with the ID "threads-container"
+    
       const threadsContainer = document.getElementById("threads-container");
 
       // Render the threads using Handlebars
