@@ -31,6 +31,8 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#newlogemail').value.trim();
   const password = document.querySelector('#logpass').value.trim();
 
+  console.log(name, email, password); // Add this line for debugging
+
   if (name && email && password) {
     const response = await fetch('/api/users/register', {
       method: 'POST',
@@ -46,10 +48,12 @@ const signupFormHandler = async (event) => {
   }
 };
 
+console.log('Attaching loginFormHandler to .card-front form');
 document
   .querySelector('.card-front form')
   .addEventListener('submit', loginFormHandler);
 
+console.log('Attaching signupFormHandler to .card-back form');
 document
   .querySelector('.card-back form')
   .addEventListener('submit', signupFormHandler);
