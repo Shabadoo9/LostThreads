@@ -65,56 +65,8 @@ header, .threads:not(:last-child) {
     display: none;
 }
 
-/* ============ Homepage Tab Menu ================== */
-.tabs h2 {
-  font-weight: bold;
-  border-color: #133006;
-}
 
-.tabs{
-  z-index: 50;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.tabs.sticky {
-  position: sticky;
-  top: auto;
-  bottom: 0;
-  width: 100%;
-}
-
-.tabmenu {
-  list-style-type: none;
-  white-space: nowrap;
-  display: inline-block;
-  margin-top: 5px;
-  vertical-align: bottom;
-}
-.tabmenu li {
-  display: inline;
-  font-weight: bold;
-  font-size: 130%;
-}
-.tabmenu li a:hover {
-  background-color: #fff;
-  border: 1px solid #142c01;
-}
-
-.tabmenu li a {
-  padding: 2px 10px 25px 10px;
-  background-color: #306405;
-  border: 1px solid #142c01;
-}
-.tabmenu li.selected a {
-  color: #ff4500;
-  background-color: #fff;
-  border: 1px solid #cbc937;
-  border-bottom: 1px solid #fff;
-  z-index: 99;
-}
-
-/* ============== Toggle Login/Signup =================== */
+/* ============== General Main and Homepage =================== */
 
 body{
 	font-family: 'Poppins', sans-serif;
@@ -217,6 +169,100 @@ h6 span{
   font-weight: 700;
 }
 
+
+/* ============ Homepage Tab Menu ================== */
+.tabs h2 {
+  font-weight: bold;
+  border-color: #133006;
+}
+
+.tabs{
+  z-index: 50;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tabs.sticky {
+  position: sticky;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+}
+
+.tabmenu {
+  list-style-type: none;
+  white-space: nowrap;
+  display: inline-block;
+  margin-top: 5px;
+  vertical-align: bottom;
+}
+.tabmenu li {
+  display: inline;
+  font-weight: bold;
+  font-size: 130%;
+}
+.tabmenu li a:hover {
+  background-color: #fff;
+  border: 1px solid #142c01;
+}
+
+.tabmenu li a {
+  padding: 2px 10px 25px 10px;
+  background-color: #306405;
+  border: 1px solid #142c01;
+}
+.tabmenu li.selected a {
+  color: #ff4500;
+  background-color: #fff;
+  border: 1px solid #cbc937;
+  border-bottom: 1px solid #fff;
+  z-index: 99;
+}
+
+
+/* =============== Profile Page ======================== */
+.profile-wrapper {
+  background-color: #2c2d36;
+  background-size: cover;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+.greeting {
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.greeting h2{
+  color:#65e6f7;
+}
+
+.today {
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.your-threads {
+  margin: 30px 0 0 0;
+  padding: 5px;
+}
+
+.your-threads h3{
+  color:#81c924;
+}
+
+#browseBtn {
+  margin: 20px;
+}
+
+#createBtn {
+  margin: 20px;
+}
+
+
+/* ============== Toggle Login/Signup =================== */
 .section{
   position: relative;
   width: 100%;
