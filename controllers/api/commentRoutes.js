@@ -4,9 +4,10 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
+      const threadId = req.query.thread_id; // Use req.query to get the thread_id
       const comments = await Comments.findAll({
         where: {
-          thread_id: req.body.thread_id,
+          thread_id: threadId,
         },
         include: [
           {
