@@ -36,7 +36,7 @@ const newFormHandler = async (event) => {
       // }
     
       try {
-        const response = await fetch('/threads', {
+        const response = await fetch('/', {
           method: 'POST',
           body: formData, // Use the FormData object as the request body
         });
