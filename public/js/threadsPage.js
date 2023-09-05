@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Set the inner HTML of the comments list
       commentsList.innerHTML = commentsHTML;
     } else {
-      // Handle the case where comments is empty or undefined
+      // Handle the case where comments are empty or undefined
       commentsList.innerHTML = '<p>No comments available.</p>';
     }
   }
@@ -33,12 +33,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Fetch and render comments on page load
-  const response = await fetch(`/api/comments?thread_id=${threadId}`);
-  if (response.ok) {
-    const data = await response.json();
-    const comments = data.comments;
-    renderComments(comments);
+  async function fetchAndRenderComments() {
+    try {
+      const response = await fetch(`/api/comments?thread_id=${threadId}`);
+      if (response.ok) {
+        const data = await response.json();
+        const comments = data.comments;
+        renderComments(comments);
+      } else {
+        console.error("Failed to fetch comments:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching comments:", error);
+    }
   }
+
+  // Initial fetch and render
+  await fetchAndRenderComments();
 
   // Add a click event listener to the "Add Comment" button
   addCommentButton.addEventListener("click", () => {
@@ -52,10 +63,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   submitCommentButton.addEventListener("click", async (e) => {
     e.preventDefault(); // Prevent the form from submitting (you can send the data to your server here)
 
-    try { // Add this try-catch block
+    try {
       // Get the comment text from the textarea
       const commentText = commentTextarea.value;
-  
+
       const response = await fetch("/api/comments", {
         method: "POST",
         headers: {
@@ -73,26 +84,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Failed to submit comment:", response.status, response.statusText);
       }
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("An error occurred while submitting a comment:", error);
     }
 
     // Hide the comment box
     const commentBox = document.getElementById("comment-box");
     commentBox.style.display = "none";
   });
-
-  function formatDate(dateString) {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  }
-
-  // Fetch and render comments on page load
-  //(async () => {
-    //const response = await fetch(`/api/comments?thread_id=${threadId}`);
-   // if (response.ok) {
-     // const data = await response.json();
-    //  const comments = data.comments;
-     // renderComments(comments);
-   // }
-  //});
 });
