@@ -70,5 +70,5 @@ document
     .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.threads-list')
-  .addEventListener('click', delButtonHandler);
+ .querySelector('.threads-list')
+ .addEventListener('click', delButtonHandler);
