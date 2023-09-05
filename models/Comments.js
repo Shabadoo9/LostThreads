@@ -28,7 +28,6 @@ Comments.init(
     },
     thread_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: 'threads',
         key: 'id',
