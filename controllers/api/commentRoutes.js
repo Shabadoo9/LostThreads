@@ -15,18 +15,26 @@ router.get('/', async (req, res) => {
   });
 
 // Create a new comment
-router.post('/', withAuth, async (req, res) => { 
-  try {
-    const newComment = await Comments.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(201).json(newComment);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+router.post('/', withAuth, async (req, res) => {
+    try {
+      const newComment = await Comments.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+  
+      // Query comments associated with the thread after creating the new comment
+      const updatedComments = await Comments.findAll({
+        where: {
+          thread_id: req.body.thread_id,
+        },
+      });
+  
+      res.status(201).json({ comments: updatedComments });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+  
 
 // Delete a comment
 router.delete('/:id', withAuth, async (req, res) => {
