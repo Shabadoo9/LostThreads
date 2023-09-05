@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css");
 
 header, .threads:not(:last-child) {
     border-bottom: 1px solid #ccc;
