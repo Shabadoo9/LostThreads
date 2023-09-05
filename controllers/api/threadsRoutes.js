@@ -63,7 +63,7 @@ const storage = multer.diskStorage({
 // Create a Multer instance with the defined storage
 const upload = multer({ storage: storage });
 
-router.post('/api/threads', upload.single('image'), async (req, res) => {
+router.post('/threads', upload.single('image'), async (req, res) => {
   try {
     const { name, category, description } = req.body;
 

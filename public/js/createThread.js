@@ -36,7 +36,7 @@ const newFormHandler = async (event) => {
       // }
     
       try {
-        const response = await fetch('/api/threads', {
+        const response = await fetch('/threads', {
           method: 'POST',
           body: formData, // Use the FormData object as the request body
         });
@@ -60,7 +60,7 @@ const delButtonHandler = async (event) => {
 if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/threads/${id}`, {
+    const response = await fetch(`/threads/${id}`, {
     method: 'DELETE',
     });
 
