@@ -1,16 +1,12 @@
-const addCommentButton = document.getElementById("add-comment-button");
-const commentBox = document.getElementById("comment-box");
-const commentTextarea = document.getElementById("comment-textarea");
-const submitCommentButton = document.getElementById("submit-comment-button");
-const commentsList = document.querySelector(".comments-list");
-const threadId = window.location.pathname.split('/').pop();
+document.addEventListener("DOMContentLoaded", async () => {
+  const addCommentButton = document.getElementById("add-comment-button");
+  const commentBox = document.getElementById("comment-box");
+  const commentTextarea = document.getElementById("comment-textarea");
+  const commentsList = document.querySelector(".comments-list");
+  const threadId = window.location.pathname.split('/').pop();
 
-document.addEventListener("DOMContentLoaded", () => {
   // Function to render comments
   function renderComments(comments) {
-    console.log("Received comments:", comments); // Add this line
-    const commentsList = document.querySelector(".comments-list");
-
     // Check if comments is an array and not undefined
     if (Array.isArray(comments) && comments.length > 0) {
       // Create an HTML string for the comments
@@ -30,8 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Function to format dates (replace with your date formatting function)
+  function formatDate(dateString) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+
+  // Fetch and render comments on page load
+  const response = await fetch(`/api/comments?thread_id=${threadId}`);
+  if (response.ok) {
+    const data = await response.json();
+    const comments = data.comments;
+    renderComments(comments);
+  }
+
   // Add a click event listener to the "Add Comment" button
-  const addCommentButton = document.getElementById("add-comment-button");
   addCommentButton.addEventListener("click", () => {
     // Toggle the visibility of the comment box
     const commentBox = document.getElementById("comment-box");
@@ -66,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     commentBox.style.display = "none";
   });
 
-  // Function to format dates (replace with your date formatting function)
   function formatDate(dateString) {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
