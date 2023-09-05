@@ -136,7 +136,7 @@ nav a {
 .homepage-wrapper{
   margin: 0% 10%;
   padding: 0% 10%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -157,7 +157,7 @@ a:hover {
 }
 p {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.7;
 }
 h4 {
@@ -273,6 +273,46 @@ h6 span{
 
 .createThread-wrapper h3 {
   color: #c2d419;
+}
+
+
+/* =============== Individual Thread Page ===================== */
+
+.thread-id-wrapper {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://th-thumbnailer.cdn-si-edu.com/wHLiLizgDd4A47HEm1eIjWZyq2I=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/dc/ce/dccec837-9b72-4e90-b953-5a6f98cbd157/42-19680228.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100%;
+}
+
+.thread-indiv {
+  margin: 0% 10%;
+  padding: 5% 10% 18% 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.thread-indiv h2{
+  font-size: 200%;
+}
+
+.thread-indiv p{
+  font-size: 120%;
+}
+
+#comment-box {
+  display: none;
+}
+
+.comment {
+  background-color:rgba(233, 233, 233, 0.8);
+  padding: 2%;
+  margin: 1% 0;
+  border-radius: 10px;
+}
+
+.comment p {
+  color: black;
 }
 
 
@@ -507,8 +547,4 @@ h6 span{
   background-color: #133006;
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(79, 148, 1, 0.2);
-}
-
-#comment-box {
-display: none;
 }

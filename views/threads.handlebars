@@ -1,30 +1,32 @@
-<div class="text-center">
-  <p>{{{get_emoji}}}</p>
-  <h2>{{name}}</h2>
-  <p>Created by {{user.name}} on 
-    <span for="img" aria-label="calendar">📅</span>
-    {{format_date date_created}}
-  </p>
-  <p>Category: {{category}}</p>
-  <p>{{description}}</p>
-  <div class="comment-dropdown">
-    <button id="add-comment-button" class="btn btn-primary">Add Comment</button>
-    <div id="comment-box" class="comment-box">
-      <!-- Comment form goes here -->
-      <form>
-        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
-        <button id="submit-comment-button" class="btn btn-success">Submit</button>
-      </form>
-    </div>
-    <!-- Display comments -->
-    <div class="comments-list">
-      {{#each comments}}
-      <div class="comment">
-        <p><strong>{{this.user.name}}</strong></p>
-        <p>{{format_date this.date_created}}</p>
-        <p>{{this.description}}</p>
+<div class="thread-id-wrapper">
+  <div class="thread-indiv">
+    <h2>{{name}}</h2>
+    <p>Created by {{user.name}} on 
+      <span for="img" aria-label="calendar">📅</span>
+      {{format_date date_created}}
+    </p>
+    <p>Category: {{category}}</p>
+    <p>{{description}}</p>
+    <div class="comment-dropdown">
+      <button id="add-comment-button" class="btn btn-primary">Add Comment</button>
+      <div id="comment-box" class="comment-box">
+        <!-- Comment form goes here -->
+        <form>
+          <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
+          {{!-- <button id="emoji-button" class="btn btn-success">😀</button> --}}
+          <button id="submit-comment-button" class="btn btn-success">Submit</button>
+        </form>
       </div>
-      {{/each}}
+      <!-- Display comments -->
+      <div class="comments-list">
+        {{#each comments}}
+        <div class="comment">
+          <p><strong>{{this.user.name}}</strong></p>
+          <p>Date: {{format_date this.date_created}}</p>
+          <p>{{this.description}}</p>
+        </div>
+        {{/each}}
+      </div>
     </div>
   </div>
 </div>
