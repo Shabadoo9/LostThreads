@@ -23,9 +23,9 @@ Threads.init(
     description: {
       type: DataTypes.STRING(500),
     },
-    image:{
-      type: DataTypes.STRING,
-    },
+   // image:{
+     // type: DataTypes.STRING,
+   // },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,

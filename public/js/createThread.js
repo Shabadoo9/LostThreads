@@ -16,18 +16,18 @@ const newFormHandler = async (event) => {
   //   }
   // });
   
-  // const upload = multer({
-  //   storage: storage
-  // })
+ // const upload = multer({
+  //  storage: storage
+ // })
   
   
-  // const data= {
-  //   name: name,
-  //   category: category,
-  //   description: description,
-  //   // image: image.filename,
-  // }
-  // console.log(data);
+ // const data= {
+  //  name: name,
+   // category: category,
+  //  description: description,
+  //  image: image.filename,
+ // }
+  //console.log(data);
   
   
   if (name && category && description) {
@@ -70,5 +70,5 @@ document
     .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.threads-list')
-  .addEventListener('click', delButtonHandler);
+ .querySelector('.threads-list')
+ .addEventListener('click', delButtonHandler);
