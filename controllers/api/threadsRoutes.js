@@ -2,7 +2,7 @@ const router = require('express').Router();
 const routes = require('../');
 const { User, Threads } = require('../../models');
 const withAuth = require('../../utils/auth');
-const multer = require('multer');
+//const multer = require('multer');
 const path = require('path');
 
 
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
     const newThreads = await Threads.create({
       ...req.body,
       user_id: req.session.user_id,
-      image: req.file.filename,
+     // image: req.file.filename,
     });
     
     res.render('homepage')

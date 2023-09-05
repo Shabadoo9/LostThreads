@@ -7,7 +7,7 @@ const newFormHandler = async (event) => {
   const name = document.querySelector('#threads-name').value.trim();
   const category = document.querySelector('#threads-category').value.trim();
   const description = document.querySelector('#threads-desc').value.trim();
-  const image = document.querySelector('#threads-image').value;
+  //const image = document.querySelector('#threads-image').value;
   
   //const storage = multer.diskStorage({
     //destination: './public/uploads/',
