@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -57,3 +58,4 @@ console.log('Attaching signupFormHandler to .card-back form');
 document
   .querySelector('.card-back form')
   .addEventListener('submit', signupFormHandler);
+});
