@@ -30,7 +30,7 @@ Comments.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Threads',
+        model: 'threads',
         key: 'id',
       },
     },
