@@ -52,22 +52,28 @@ document.addEventListener("DOMContentLoaded", async () => {
   submitCommentButton.addEventListener("click", async (e) => {
     e.preventDefault(); // Prevent the form from submitting (you can send the data to your server here)
 
-    // Get the comment text from the textarea
-    const commentText = commentTextarea.value;
-
-    const response = await fetch("/api/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ description: commentText, thread_id: threadId }),
-    });
-    console.log("Comment Text:", commentText);
-    if (response.ok) {
-      const data = await response.json();
-      const newComments = data.comments;
-      renderComments(newComments);
-      commentTextarea.value = "";
+    try { // Add this try-catch block
+      // Get the comment text from the textarea
+      const commentText = commentTextarea.value;
+  
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ description: commentText, thread_id: threadId }),
+      });
+      console.log("Comment Text:", commentText);
+      if (response.ok) {
+        const data = await response.json();
+        const newComments = data.comments;
+        renderComments(newComments);
+        commentTextarea.value = "";
+      } else {
+        console.error("Failed to submit comment:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
 
     // Hide the comment box
@@ -81,12 +87,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Fetch and render comments on page load
-  (async () => {
-    const response = await fetch(`/api/comments?thread_id=${threadId}`);
-    if (response.ok) {
-      const data = await response.json();
-      const comments = data.comments;
-      renderComments(comments);
-    }
-  });
+  //(async () => {
+    //const response = await fetch(`/api/comments?thread_id=${threadId}`);
+   // if (response.ok) {
+     // const data = await response.json();
+    //  const comments = data.comments;
+     // renderComments(comments);
+   // }
+  //});
 });
