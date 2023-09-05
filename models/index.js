@@ -14,6 +14,7 @@ Threads.belongsTo(User, {
 
 User.hasMany(Comments, { // User has many Comments
   foreignKey: 'user_id',
+  as: 'comments',
   onDelete: 'CASCADE'
 });
 
@@ -31,3 +32,4 @@ Comments.belongsTo(Threads, {
 });
 
 module.exports = { User, Threads, Comments };
+
