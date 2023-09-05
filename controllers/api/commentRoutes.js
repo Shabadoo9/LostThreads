@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Comments } = require('../../models');
+const { Comments, User, Threads } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
       const comments = await Comments.findAll({
-        // Include any necessary associations (e.g., User) here
+     
       });
   
       res.status(200).json({ comments });

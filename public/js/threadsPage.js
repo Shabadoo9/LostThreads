@@ -36,7 +36,6 @@ submitCommentButton.addEventListener("click", async (e) => {
   // Get the comment text from the textarea
   const commentText = commentTextarea.value;
 
-  // Create a new comment on the server and fetch updated comments
   const response = await fetch("/api/comments", {
     method: "POST",
     headers: {
@@ -51,7 +50,6 @@ submitCommentButton.addEventListener("click", async (e) => {
     renderComments(newComments);
     commentTextarea.value = "";
   }
-
   // Hide the comment box
   commentBox.style.display = "none";
 });
