@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Create an HTML string for the comments
       const commentsHTML = comments.map((comment) => `
         <div class="comment">
-          <p><strong>${comment.User.name}</strong></p>
+          <p><strong>${comment.user.name}</strong></p>
           <p>${formatDate(comment.date_created)}</p>
           <p>${comment.description}</p>
         </div>
