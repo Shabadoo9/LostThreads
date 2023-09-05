@@ -16,6 +16,7 @@ function getGreeting() {
   document.getElementById('greeting').textContent = greeting;
 }
 
+getGreeting();
 
 //Profile button click events
 const editProfileBtn = document.getElementById("editProfileBtn");

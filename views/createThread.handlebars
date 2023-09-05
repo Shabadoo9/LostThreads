@@ -1,17 +1,53 @@
 <h3>Create a New Thread:</h3>
 
-    <form class="form new-threads-form">
+    <form class="form new-threads-form" id="uploadForm" enctype="multipart/form-data" action="/upload" method="POST">
       <div class="form-group">
+        {{!-- Add thread name --}}
         <label for="threads-name">Thread Name:</label>
         <input class="form-input" type="text" id="threads-name" name="threads-name" />
       </div>
+
       <div class="form-group">
-        <label for="threads-desc">Description:</label>
-        <textarea class="form-input" id="threads-desc" name="threads-desc"></textarea>
+        <div class="row">
+            <label for="threads-category">Category:</label>
+        </div>
+        {{!-- category choices --}}
+        <div class="row">
+          <select class="form-input" id="threads-category" name="threads-category">
+            <option value="" disabled selected>Choose a Category for Your Thread</option>
+            <option class="threads-"value="Houses">Houses</option>
+            <option value="Warehouses">Warehouses</option>
+            <option value="Historic">Historic</option>
+            <option value="Haunted">Haunted</option>
+            <option value="Factories">Factories</option>
+            <option value="Hospitals">Hospitals</option>
+            <option value="Misc">Misc</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+
+      {{!-- Uploading pictures --}}
+      {{!-- <div class="row">
+        <label for="threads-category">Upload Image:</label>
       </div>
+      <div class="row">
+        <div class="form-group">
+    
+            <label for="threads-image">Image (JPG only): </label>
+            <input type="file" id="threads-image" name="threads-image" accept="image/*" />
+   
+        </div>
+      </div> --}}
+
+      {{!-- Add description --}}
+      <div class="row">
+        <div class="form-group">
+          <label for="threads-desc">Description:</label>
+          <textarea class="form-input" id="threads-desc" name="threads-desc"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
     </form>
 
-<script src="/js/createThread.js"></script>
+<script src="./js/createThread.js"></script>
+<script src="./js/profile.js"></script>

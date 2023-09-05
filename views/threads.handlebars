@@ -5,8 +5,28 @@
     <span for="img" aria-label="calendar">📅</span>
     {{format_date date_created}}
   </p>
+  <p>Category: {{category}}</p>
   <p>{{description}}</p>
-  <p>
-    <button class="btn btn-primary">Add Comment</button>
-  </p>
+  <div class="comment-dropdown">
+    <button id="add-comment-button" class="btn btn-primary">Add Comment</button>
+    <div id="comment-box" class="comment-box">
+      <!-- Comment form goes here -->
+      <form>
+        <textarea id="comment-textarea" class="form-control" rows="3" placeholder="Write your comment"></textarea>
+        <button id="submit-comment-button" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+    <!-- Display comments -->
+    <div class="comments-list">
+      {{#each comments}}
+      <div class="comment">
+        <p><strong>{{this.user.name}}</strong></p>
+        <p>{{format_date this.date_created}}</p>
+        <p>{{this.description}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
+
+<script src="/js/threadsPage.js"></script>
