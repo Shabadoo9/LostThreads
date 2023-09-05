@@ -20,12 +20,34 @@
 <div class="row">
   <div class="col-6">
     <h3>Your Threads:</h3>
-  </div>
+  
 
-  <div class="col-6">
-    <h3>Liked Threads:</h3>
-  </div>
+ <div id="thread-template" type="text/x-handlebars-template">
+  {{#each threads as |thread| }}
+    <div class="row mb-4 threads" data-category="{{thread.category}}">
+      <div class="col-md-4">
+        <h3>
+          {{!-- {{{get_emoji}}} --}}
+          <a href="/threads/{{thread.id}}">{{thread.name}}</a>
+        </h3>
+        <h6>Category: {{thread.category}}</h6>
+        <p>
+          Created by {{thread.user.name}} on 
+          <span for="img" aria-label="calendar">📅</span>
+          {{format_date thread.date_created}}
+        </p>
+      </div>
+      <div class="col-md-8">
+        {{!-- <image src=`{{thread.image}}`></image> --}}
+        <p>
+          {{thread.description}}
+        </p>
+      </div>
+    </div>
+  {{/each}}
 </div>
+</div>
+
 
 
   {{!-- {{#if threads.length}}
