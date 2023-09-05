@@ -6,20 +6,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   const threadId = window.location.pathname.split('/').pop();
 
   // Function to render comments
-  function renderComments(comments) {
+  async function renderComments(comments) {
     // Check if comments is an array and not undefined
     if (Array.isArray(comments) && comments.length > 0) {
       // Create an HTML string for the comments
-      const commentsHTML = comments.map((comment) => `
-        <div class="comment">
-          <p><strong>${comment.name}</strong></p>
-          <p>${formatDate(comment.date_created)}</p>
-          <p>${comment.description}</p>
-        </div>
-      `).join('');
+      const commentsHTML = [];
+
+      for (const comment of comments) {
+        // Fetch the user information based on user_id
+        const user = await fetchUserById(comment.user_id);
+
+        commentsHTML.push(`
+          <div class="comment">
+            <p><strong>${user.name}</strong></p>
+            <p>${formatDate(comment.date_created)}</p>
+            <p>${comment.description}</p>
+          </div>
+        `);
+      }
 
       // Set the inner HTML of the comments list
-      commentsList.innerHTML = commentsHTML;
+      commentsList.innerHTML = commentsHTML.join('');
     } else {
       // Handle the case where comments are empty or undefined
       commentsList.innerHTML = '<p>No comments available.</p>';
@@ -32,6 +39,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
 
+  // Function to fetch user information by ID
+  async function fetchUserById(userId) {
+    try {
+      const response = await fetch(`/api/users/${userId}`); // Replace with your API endpoint for fetching user details
+      if (response.ok) {
+        const user = await response.json();
+        return user;
+      } else {
+        console.error("Failed to fetch user:", response.status, response.statusText);
+        return { name: "Unknown" }; // Provide a default name if the user cannot be fetched
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching user:", error);
+      return { name: "Unknown" }; // Provide a default name if an error occurs
+    }
+  }
+
   // Fetch and render comments on page load
   async function fetchAndRenderComments() {
     try {
@@ -39,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         const data = await response.json();
         const comments = data.comments;
-        renderComments(comments);
+        await renderComments(comments);
       } else {
         console.error("Failed to fetch comments:", response.status, response.statusText);
       }
@@ -77,9 +101,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log("Comment Text:", commentText);
       if (response.ok) {
         const data = await response.json();
-        const newComments = data.comments;
-        renderComments(newComments);
-        commentTextarea.value = "";
+        if (data) {
+          const newComments = data.comments;
+          await renderComments(newComments);
+          commentTextarea.value = "";
+        } else {
+          console.error("No data received from the server.");
+        }
       } else {
         console.error("Failed to submit comment:", response.status, response.statusText);
       }
@@ -91,4 +119,82 @@ document.addEventListener("DOMContentLoaded", async () => {
     const commentBox = document.getElementById("comment-box");
     commentBox.style.display = "none";
   });
+});const router = require('express').Router();
+const { User } = require('../../models');
+
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
+
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.body.email } });
+
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    const validPassword = await userData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+// New route to fetch user details by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findByPk(userId, {
+      attributes: ['name'], // Include only the 'name' attribute
+    });
+
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+module.exports = router;

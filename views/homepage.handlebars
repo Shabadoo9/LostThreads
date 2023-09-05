@@ -1,44 +1,47 @@
-<h2>Recent Threads</h2>
+<div class="bg-home">
+  <div class="homepage-wrapper">
+    {{!-- Row for tabs section on homepage --}}
+    <div class="row tabs">
+      <h2>Thread Categories</h2>
+      <ul class="tabmenu">
+          <li><a href="#" class="choice" data-category="Houses Warehouses Historic Haunted Factories Hospitals Misc">All</a></li>
+          <li><a href="#" class="choice" data-category="Houses">Houses</a></li>
+          <li><a href="#" class="choice" data-category="Warehouses">Warehouses</a></li>
+          <li><a href="#" class="choice" data-category="Historic">Historic</a></li>
+          <li><a href="#" class="choice" data-category="Haunted">Haunted</a></li>
+          <li><a href="#" class="choice" data-category="Factories">Factories</a></li>
+          <li><a href="#" class="choice" data-category="Hospitals">Hospitals</a></li>
+          <li><a href="#" class="choice" data-category="Misc">Misc</a></li>
+      </ul>
+    </div>
 
-{{!-- Row for tabs section on homepage --}}
-<div class="row mb-4 tabs">
-  <ul class="tabmenu">
-      <li><a href="#" class="choice" data-category="Houses Warehouses Historic Haunted Factories Hospitals Misc">All</a></li>
-      <li><a href="#" class="choice" data-category="Houses">Houses</a></li>
-      <li><a href="#" class="choice" data-category="Warehouses">Warehouses</a></li>
-      <li><a href="#" class="choice" data-category="Historic">Historic</a></li>
-      <li><a href="#" class="choice" data-category="Haunted">Haunted</a></li>
-      <li><a href="#" class="choice" data-category="Factories">Factories</a></li>
-      <li><a href="#" class="choice" data-category="Hospitals">Hospitals</a></li>
-      <li><a href="#" class="choice" data-category="Misc">Misc</a></li>
-  </ul>
-</div>
-
-<!-- Row to loop over each object in the threads array -->
-<div id="thread-template" type="text/x-handlebars-template">
-  {{#each threads as |thread| }}
-  <div class="row mb-4 threads" data-category="{{thread.category}}">
-      <div class="col-md-4">
-        <h3>
-          {{!-- {{{get_emoji}}} --}}
-          <a href="/threads/{{thread.id}}">{{thread.name}}</a>
-        </h3>
-        <h6>Category: {{thread.category}}</h6>
-        <p>
-          Created by {{thread.user.name}} on 
-          <span for="img" aria-label="calendar">📅</span>
-          {{format_date thread.date_created}}
-        </p>
-        
+    <!-- Row to loop over each object in the threads array -->
+    <div class ="thread-template scroll" id="thread-template" type="text/x-handlebars-template">
+      {{#each threads as |thread| }}
+      <div class="row mb-4 threads" data-category="{{thread.category}}">
+          <div class="col-md-4">
+            <h3>
+              {{!-- {{{get_emoji}}} --}}
+              <a href="/threads/{{thread.id}}">{{thread.name}}</a>
+            </h3>
+            <h6>Category: {{thread.category}}</h6>
+            <p>
+              Created by {{thread.user.name}} on 
+              <span for="img" aria-label="calendar">📅</span>
+              {{format_date thread.date_created}}
+            </p>
+            
+          </div>
+          <div class="col-md-8">
+            {{!-- <image src=`{{thread.image}}`></image> --}}
+            <p>
+              {{thread.description}}
+            </p>
+          </div>
       </div>
-      <div class="col-md-8">
-        {{!-- <image src=`{{thread.image}}`></image> --}}
-        <p>
-          {{thread.description}}
-        </p>
-      </div>
+      {{/each}}
+    </div>
   </div>
-  {{/each}}
 </div>
 
 <script src="/js/index.js"></script>

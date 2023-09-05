@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -19,34 +20,33 @@
   <div class="ghost" id="ghostanimation">
     <img src="https://www.freepnglogos.com/uploads/ghost-png/ghost-clipart-clipart-panda-clipart-images-39.png" alt="ghost" width="100" height="100">
   </div>
-  
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-3">
-      <h1>
-        <a href="/">Lost Threads</a>
-      </h1>
+
+  {{!-- <div class="flex-column justify-space-around"> --}}
+    <header class="display-flex justify-space-between">
+       <a href="/">
+        <img src="https://i.ibb.co/7NmHsPg/logo.jpg" alt="Logo for Lost Threads" width="200" height="150" />
+      </a>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">Profile</a> |
-        <a class="no-button" id="logout">Logout</a>
+        <a href="/profile">Profile</a>
+        <a href="/login" id="logout">Logout</a>
         {{/if}}
-        <a id="btnGhost">Hide Ghost</a>
+        <a id="btnGhost" style="color:gold"> Hide Ghost </a>
       </nav>
     </header>
     {{#if logged_in}}
-    <main class="container container-fluid mt-5"></main>
+    <main class="container container-fluid"></main>
      
         {{{ body }}}
       
     </main>
     {{else}}
-    <h3>Use the toggle switch to login or sign-up!</h3>
-    <div class="section">
+    <div class="section hero-image">
         <div class="container">
           <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
-              <div class="section pb-5 pt-5 pt-sm-2 text-center">
+              <div class="section pb-5 pt-1 pt-sm-2 text-center">
                 <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
                 <label for="reg-log"></label>
                 <div class="card-3d-wrap mx-auto">
@@ -82,7 +82,7 @@
                               
                             </div>	
                             <div class="form-group mt-2">
-                              <input type="email" name="logemail" class="form-style" placeholder="Email" id="newlogemail" autocomplete="off">
+                              <input type="email" name="newlogemail" class="form-style" placeholder="Email" id="newlogemail" autocomplete="off">
                               
                             </div>	
                             <div class="form-group mt-2">
