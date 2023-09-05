@@ -66,6 +66,23 @@ header, .threads:not(:last-child) {
 }
 
 /* ============ Homepage Tab Menu ================== */
+.tabs h2 {
+  font-weight: bold;
+  border-color: #133006;
+}
+
+.tabs{
+  z-index: 50;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tabs.sticky {
+  position: sticky;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+}
 
 .tabmenu {
   list-style-type: none;
@@ -76,18 +93,25 @@ header, .threads:not(:last-child) {
 }
 .tabmenu li {
   display: inline;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 130%;
 }
+.tabmenu li a:hover {
+  background-color: #fff;
+  border: 1px solid #142c01;
+}
+
 .tabmenu li a {
-  padding: 2px 10px 0 4px;
-  background-color: #413c3c;
+  padding: 2px 10px 25px 10px;
+  background-color: #306405;
+  border: 1px solid #142c01;
 }
 .tabmenu li.selected a {
   color: #ff4500;
   background-color: #fff;
   border: 1px solid #cbc937;
   border-bottom: 1px solid #fff;
-  z-index: 100;
+  z-index: 99;
 }
 
 /* ============== Toggle Login/Signup =================== */
@@ -99,12 +123,12 @@ body{
 	line-height: 1.7;
 	color: #f7f4f4;
 	/* background-color: #f6f8f7; */
-  background-color: hsl(8, 100%, 2%);
+  background-color: black;
 	overflow-x: hidden;
 }
 
 header{
-  background-color: hsl(8, 100%, 2%);
+  background-color: black;
   color: #f6f8f7;
   position: relative;
   /* align-content:end; */
@@ -118,15 +142,17 @@ header.sticky {
   z-index:100;
 }
 
-.tabs{
-  z-index: 50;
+
+.thread-template {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 65vh;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.tabs.sticky {
-  position: sticky;
-  top: auto;
-  bottom: 0;
-  width: 100%;
+.threads{
+  margin: 10px;
+  padding: 4px;
 }
 
 nav {
@@ -149,7 +175,7 @@ nav a {
 }
 
 .bg-home{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.demilked.com/wp-content/uploads/2020/06/abandoned-locations-pennsylvanian-obsidianurbexphotography-fb.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://static.demilked.com/wp-content/uploads/2020/06/abandoned-locations-pennsylvanian-obsidianurbexphotography-fb.png");
   background-position: center fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -158,15 +184,18 @@ nav a {
 .homepage-wrapper{
   margin: 0% 10%;
   padding: 0% 10%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 a {
+  color: #eeeee6fd;
 	cursor: pointer;
   transition: all 200ms linear;
 }
 a:hover {
 	text-decoration: none;
+  color:#ff4500;
+  border-color: #00000c; 
 }
 .link {
   color: #c4c3ca;

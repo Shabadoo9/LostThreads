@@ -1,7 +1,7 @@
 <div class="bg-home">
   <div class="homepage-wrapper">
     {{!-- Row for tabs section on homepage --}}
-    <div class="row mb-4 tabs">
+    <div class="row tabs">
       <h2>Thread Categories</h2>
       <ul class="tabmenu">
           <li><a href="#" class="choice" data-category="Houses Warehouses Historic Haunted Factories Hospitals Misc">All</a></li>
@@ -16,7 +16,7 @@
     </div>
 
     <!-- Row to loop over each object in the threads array -->
-    <div id="thread-template" type="text/x-handlebars-template">
+    <div class ="thread-template scroll" id="thread-template" type="text/x-handlebars-template">
       {{#each threads as |thread| }}
       <div class="row mb-4 threads" data-category="{{thread.category}}">
           <div class="col-md-4">
