@@ -47,9 +47,9 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.card-front')
+  .querySelector('.card-front form')
   .addEventListener('submit', loginFormHandler);
 
 document
-  .querySelector('.card-back')
+  .querySelector('.card-back form')
   .addEventListener('submit', signupFormHandler);
