@@ -25,7 +25,7 @@ const newFormHandler = async (event) => {
     name: name,
     category: category,
     description: description,
-    image: image.filename,
+  //  image: image.filename,
   }
   console.log(data);
   
