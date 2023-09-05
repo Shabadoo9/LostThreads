@@ -1,10 +1,13 @@
-const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+// middleware for express fileupload
+const fileUpload = require('express-fileupload');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const multer = require('multer');
+// path module from node
+const path = require('path');
+// const multer = require('multer');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -48,6 +51,11 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
+
+app.get("/", (req,res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
