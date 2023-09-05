@@ -28,7 +28,7 @@ const signupFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#logname').value.trim();
-  const email = document.querySelector('#logemail').value.trim();
+  const email = document.querySelector('#newlogemail').value.trim();
   const password = document.querySelector('#logpass').value.trim();
 
   if (name && email && password) {
