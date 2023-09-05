@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch and render comments on page load
   (async () => {
-    const response = await fetch("/api/comments");
+    const response = await fetch(`/api/comments?thread_id=${threadId}`);
     if (response.ok) {
       const data = await response.json();
       const comments = data.comments;
