@@ -37,22 +37,33 @@ submitCommentButton.addEventListener("click", async (e) => {
   const commentText = commentTextarea.value;
 
   // Create a new comment on the server and fetch updated comments
-  const response = await fetch("/api/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ description: commentText }),
-  });
-
-  if (response.ok) {
-    const data = await response.json();
-    const newComments = data.comments;
-    renderComments(newComments);
-    commentTextarea.value = "";
+  try {
+    const response = await fetch("/api/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ description: commentText }),
+    });
+  
+    if (response.ok) {
+      const data = await response.json();
+      const newComments = data.comments;
+      renderComments(newComments);
+      commentTextarea.value = "";
+    } else {
+      // Handle non-OK responses (e.g., 400 Bad Request, 500 Internal Server Error)
+      // You can log the response status, display an error message, or take other actions.
+      console.error("Request failed with status:", response.status);
+      // Example: Display an error message to the user
+      // showErrorToUser("Request failed. Please try again later.");
+    }
+  } catch (error) {
+    // Handle network or other errors that occurred during the fetch.
+    console.error("An error occurred during the fetch:", error);
+    // Example: Display an error message to the user
+    // showErrorToUser("An error occurred. Please check your network connection.");
   }
-
-  // Hide the comment box
   commentBox.style.display = "none";
 });
 
