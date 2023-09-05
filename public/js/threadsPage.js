@@ -3,6 +3,7 @@ const commentBox = document.getElementById("comment-box");
 const commentTextarea = document.getElementById("comment-textarea");
 const submitCommentButton = document.getElementById("submit-comment-button");
 const commentsList = document.querySelector(".comments-list");
+const threadId = window.location.pathname.split('/').pop();
 
 document.addEventListener("DOMContentLoaded", () => {
   // Function to render comments
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ description: commentText }),
+      body: JSON.stringify({ description: commentText, thread_id: threadId }),
     });
     console.log("Comment Text:", commentText);
     if (response.ok) {
