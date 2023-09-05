@@ -10,17 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderComments(comments) {
     const commentsList = document.querySelector(".comments-list");
 
-    // Create an HTML string for the comments
-    const commentsHTML = comments.map((comment) => `
-      <div class="comment">
-        <p><strong>${comment.User.name}</strong></p>
-        <p>${formatDate(comment.date_created)}</p>
-        <p>${comment.description}</p>
-      </div>
-    `).join('');
+    // Check if comments is an array and not undefined
+    if (Array.isArray(comments) && comments.length > 0) {
+      // Create an HTML string for the comments
+      const commentsHTML = comments.map((comment) => `
+        <div class="comment">
+          <p><strong>${comment.User.name}</strong></p>
+          <p>${formatDate(comment.date_created)}</p>
+          <p>${comment.description}</p>
+        </div>
+      `).join('');
 
-    // Set the inner HTML of the comments list
-    commentsList.innerHTML = commentsHTML;
+      // Set the inner HTML of the comments list
+      commentsList.innerHTML = commentsHTML;
+    } else {
+      // Handle the case where comments is empty or undefined
+      commentsList.innerHTML = '<p>No comments available.</p>';
+    }
   }
 
   // Add a click event listener to the "Add Comment" button
