@@ -5,7 +5,8 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
     try {
       const comments = await Comments.findAll({
-     
+        include: User, // Include the User model when fetching comments
+        // Other query options...
       });
   
       res.status(200).json({ comments });
@@ -13,6 +14,7 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+  
 
 // Create a new comment
 router.post('/', withAuth, async (req, res) => {
