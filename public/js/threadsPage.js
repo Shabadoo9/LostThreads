@@ -77,10 +77,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log("Comment Text:", commentText);
       if (response.ok) {
         const data = await response.json();
-        const newComments = data.comments;
-        renderComments(newComments);
-        commentTextarea.value = "";
-      } else {
+        if (data) {
+          const newComments = data.comments;
+          renderComments(newComments);
+          commentTextarea.value = "";
+        } else {
+          console.error("No data received from the server.");
+        }
+      } else 
+      {
         console.error("Failed to submit comment:", response.status, response.statusText);
       }
     } catch (error) {
