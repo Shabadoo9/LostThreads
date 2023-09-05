@@ -8,6 +8,7 @@ const threadId = window.location.pathname.split('/').pop();
 document.addEventListener("DOMContentLoaded", () => {
   // Function to render comments
   function renderComments(comments) {
+    console.log("Received comments:", comments); // Add this line
     const commentsList = document.querySelector(".comments-list");
 
     // Check if comments is an array and not undefined
