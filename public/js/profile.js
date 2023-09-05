@@ -19,11 +19,11 @@ function getGreeting() {
 getGreeting();
 
 // Profile button click events
-const editProfileBtn = document.getElementById("editProfileBtn");
-editProfileBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  document.location.replace('/edit-profile');;
-});
+//const editProfileBtn = document.getElementById("editProfileBtn");
+//editProfileBtn.addEventListener('click', function(e) {
+  //e.preventDefault();
+  //document.location.replace('/edit-profile');;
+//});
 
 const browseBtn = document.getElementById("browseBtn");
 browseBtn.addEventListener('click', function(e) {
