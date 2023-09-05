@@ -6,20 +6,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   const threadId = window.location.pathname.split('/').pop();
 
   // Function to render comments
-  function renderComments(comments) {
+  async function renderComments(comments) {
     // Check if comments is an array and not undefined
     if (Array.isArray(comments) && comments.length > 0) {
       // Create an HTML string for the comments
-      const commentsHTML = comments.map((comment) => `
-        <div class="comment">
-          <p><strong>${comment.name}</strong></p>
-          <p>${formatDate(comment.date_created)}</p>
-          <p>${comment.description}</p>
-        </div>
-      `).join('');
+      const commentsHTML = [];
+
+      for (const comment of comments) {
+        // Fetch the user information based on user_id
+        const user = await fetchUserById(comment.user_id);
+
+        commentsHTML.push(`
+          <div class="comment">
+            <p><strong>${user.name}</strong></p>
+            <p>${formatDate(comment.date_created)}</p>
+            <p>${comment.description}</p>
+          </div>
+        `);
+      }
 
       // Set the inner HTML of the comments list
-      commentsList.innerHTML = commentsHTML;
+      commentsList.innerHTML = commentsHTML.join('');
     } else {
       // Handle the case where comments are empty or undefined
       commentsList.innerHTML = '<p>No comments available.</p>';
@@ -32,6 +39,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   }
 
+  // Function to fetch user information by ID
+  async function fetchUserById(userId) {
+    try {
+      const response = await fetch(`/api/users/${userId}`); // Replace with your API endpoint for fetching user details
+      if (response.ok) {
+        const user = await response.json();
+        return user;
+      } else {
+        console.error("Failed to fetch user:", response.status, response.statusText);
+        return { name: "Unknown" }; // Provide a default name if the user cannot be fetched
+      }
+    } catch (error) {
+      console.error("An error occurred while fetching user:", error);
+      return { name: "Unknown" }; // Provide a default name if an error occurs
+    }
+  }
+
   // Fetch and render comments on page load
   async function fetchAndRenderComments() {
     try {
@@ -39,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         const data = await response.json();
         const comments = data.comments;
-        renderComments(comments);
+        await renderComments(comments);
       } else {
         console.error("Failed to fetch comments:", response.status, response.statusText);
       }
@@ -79,13 +103,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const data = await response.json();
         if (data) {
           const newComments = data.comments;
-          renderComments(newComments);
+          await renderComments(newComments);
           commentTextarea.value = "";
         } else {
           console.error("No data received from the server.");
         }
-      } else 
-      {
+      } else {
         console.error("Failed to submit comment:", response.status, response.statusText);
       }
     } catch (error) {

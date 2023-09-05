@@ -58,4 +58,22 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// New route to fetch user details by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findByPk(userId, {
+      attributes: ['name'], // Include only the 'name' attribute
+    });
+
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
