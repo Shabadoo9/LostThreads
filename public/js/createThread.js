@@ -1,5 +1,5 @@
 // Create a new Thread
-const multer = require('multer');
+//const multer = require('multer');
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -9,16 +9,16 @@ const newFormHandler = async (event) => {
   const description = document.querySelector('#threads-desc').value.trim();
   const image = document.querySelector('#threads-image').value;
   
-  const storage = multer.diskStorage({
-    destination: './public/uploads/',
-    filename: (req, file, cb) => {
-      return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-  });
+  //const storage = multer.diskStorage({
+    //destination: './public/uploads/',
+    //filename: (req, file, cb) => {
+      //return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    //}
+  //});
   
-  const upload = multer({
-    storage: storage
-  })
+ // const upload = multer({
+   // storage: storage
+  //})
   
   
   const data= {
