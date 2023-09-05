@@ -1,10 +1,15 @@
 window.addEventListener('scroll', function () {
   const header = document.querySelector('header');
+  const tabs = document.querySelector('.tabs');
   const scrollY = window.scrollY;
 
   if (scrollY > 0) {
       header.classList.add('sticky');
-  } 
+      tabs.classList.add('sticky');
+  } else {
+      header.classList.remove('sticky');
+      tabs.classList.remove('sticky');
+  }
 });
 
 
