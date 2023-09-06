@@ -20,7 +20,6 @@ A forum-based website catering to abandoned locations throughout Virginia. Users
 > I WANT to be able to connect with others who are also interested in this hobby, <br>
 > SO that I can learn and share about new places to explore. <br>
 
-
 ## Acceptance Criteria
 
 > GIVEN I am a new or existing user, when I visit the site I am directed to a login page with an option to login or sign-up. <br>
@@ -35,13 +34,12 @@ A forum-based website catering to abandoned locations throughout Virginia. Users
 > WHEN I choose the "create" button, I am directed to a page where I can enter in the relevant information for my thread post and upload an image. <br>
 > THE information needed to create a post should include a title, location, date visited, description, and image(s) (optional). <br>
 
-
-
 ## Usage
+> Deployed page: https://young-earth-25624-6d7322590ac2.herokuapp.com/ <br>
+Sign up and create or browse posts.
 
-Video Example:  <br>
+![Lost threads logo](https://i.ibb.co/7NmHsPg/logo.jpg)
 
-![screenshot]()
 
 ## Installation
 Requires the following dependencies: <br>
@@ -50,4 +48,7 @@ Requires the following dependencies: <br>
 3. Mysql2
 4. Express.js
 5. Node.js
+6. Handlebars.js
+7. Bcrypt
+8. path
 
